@@ -1,3 +1,17 @@
+// Escapes user-supplied text before it's inserted via innerHTML. Registry names, item
+// titles, and guest names all come from public forms anyone can submit, so every one
+// of those values must be escaped at render time or a malicious script tag in a title
+// would execute in every visitor's browser.
+function escapeHtml(value) {
+  if (value === null || value === undefined) return '';
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 async function includePartials() {
   const targets = document.querySelectorAll('[data-include]');
   await Promise.all(

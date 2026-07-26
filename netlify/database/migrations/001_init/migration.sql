@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS registries (
   id SERIAL PRIMARY KEY,
   slug TEXT UNIQUE NOT NULL,
+  owner_token TEXT NOT NULL,
   parent_name TEXT NOT NULL,
   partner_name TEXT,
   baby_name TEXT,

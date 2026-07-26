@@ -106,6 +106,7 @@
 <div data-include="/partials/footer.html"></div>
 <script>
 let currentSlug = null;
+let currentOwnerToken = null;
 
 document.getElementById('registry-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -124,6 +125,10 @@ document.getElementById('registry-form').addEventListener('submit', async (e) =>
     if (!res.ok) throw new Error((await res.json()).error || 'Something went wrong');
     const registry = await res.json();
     currentSlug = registry.slug;
+    currentOwnerToken = registry.owner_token;
+    // Stored so this browser can prove ownership later (adding items, managing reservations).
+    // It's never sent back to the client on any GET — only returned once, here, at creation.
+    localStorage.setItem(`ppc_owner_token_${currentSlug}`, currentOwnerToken);
     document.getElementById('step-registry').style.display = 'none';
     document.getElementById('step-items').style.display = 'block';
     const link = `${location.origin}/registry-view.html?slug=${currentSlug}`;
@@ -139,6 +144,7 @@ document.getElementById('item-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const payload = {
     slug: currentSlug,
+    owner_token: currentOwnerToken,
     title: document.getElementById('title').value.trim(),
     store: document.getElementById('store').value,
     item_url: document.getElementById('item_url').value.trim(),
@@ -167,10 +173,10 @@ async function loadItems() {
   el.innerHTML = items.map(i => `
     <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:16px 20px;">
       <div>
-        <div style="font-weight:600;">${i.title}</div>
-        <div style="font-size:0.82rem;color:var(--ink-soft);">${i.store || ''}${i.price ? ' · ₹' + Number(i.price).toLocaleString('en-IN') : ''}</div>
+        <div style="font-weight:600;">${escapeHtml(i.title)}</div>
+        <div style="font-size:0.82rem;color:var(--ink-soft);">${escapeHtml(i.store) || ''}${i.price ? ' · ₹' + Number(i.price).toLocaleString('en-IN') : ''}</div>
       </div>
-      <span class="pill open">${i.priority}</span>
+      <span class="pill open">${escapeHtml(i.priority)}</span>
     </div>
   `).join('') || '<p>No items yet — add your first one above.</p>';
 }
