@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist — The Perfect Parenting Company</title>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<div data-include="/partials/header.html"></div>
+
+<section class="section" style="padding-top:48px;">
+  <div class="wrap" style="max-width:820px;">
+    <div id="registry-header">
+      <span class="eyebrow">Gifting</span>
+      <h1 id="reg-title">Loading…</h1>
+      <p id="reg-note"></p>
+    </div>
+
+    <div id="items" style="margin-top:28px;"></div>
+  </div>
+</section>
+
+<div id="reserve-modal" style="display:none;position:fixed;inset:0;background:rgba(35,36,31,0.5);z-index:200;align-items:center;justify-content:center;padding:20px;">
+  <div class="form-card" style="max-width:420px;width:100%;">
+    <h3>Reserve this gift</h3>
+    <p id="reserve-item-title" style="font-weight:600;color:var(--ink);"></p>
+    <div class="field">
+      <label for="guest_name">Your name *</label>
+      <input id="guest_name" required>
+    </div>
+    <div class="field">
+      <label for="guest_email">Your email (optional)</label>
+      <input id="guest_email" type="email">
+    </div>
+    <div class="field">
+      <label for="guest_message">A note for the parents (optional)</label>
+      <textarea id="guest_message" rows="2"></textarea>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button class="btn btn-outline" type="button" id="cancel-reserve" style="flex:1;justify-content:center;">Cancel</button>
+      <button class="btn btn-primary" type="button" id="confirm-reserve" style="flex:1;justify-content:center;">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div data-include="/partials/footer.html"></div>
+<script>
+const params = new URLSearchParams(location.search);
+const slug = params.get('slug');
+let activeItemId = null;
+
+async function loadRegistry() {
+  if (!slug) {
+    document.getElementById('reg-title').textContent = 'No wishlist specified';
+    return;
+  }
+  const res = await fetch(`/api/registries?slug=${slug}`);
+  if (!res.ok) {
+    document.getElementById('reg-title').textContent = "We couldn't find that wishlist";
+    return;
+  }
+  const r = await res.json();
+  document.getElementById('reg-title').textContent = `${r.parent_name}${r.partner_name ? ' & ' + r.partner_name : ''}'s Wishlist`;
+  document.getElementById('reg-note').textContent = r.cover_note || 'Compare prices across stores, then buy directly from whoever you like. Reserve what you pick so no one else buys the same thing.';
+  loadItems();
+}
+
+async function loadItems() {
+  const res = await fetch(`/api/items?slug=${slug}`);
+  const items = await res.json();
+  const el = document.getElementById('items');
+  if (!items.length) {
+    el.innerHTML = '<p>No items on this wishlist yet.</p>';
+    return;
+  }
+  el.innerHTML = items.map(i => `
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px;padding:20px 22px;">
+      <div>
+        <div style="font-weight:600;font-size:1.05rem;">${i.title}</div>
+        <div style="font-size:0.85rem;color:var(--ink-soft);margin-top:4px;">
+          ${i.store || ''}${i.price ? ' · ₹' + Number(i.price).toLocaleString('en-IN') : ''}
+          ${i.url ? ` · <a href="${i.url}" target="_blank" rel="noopener" style="color:var(--sage-dark);text-decoration:underline;">View product</a>` : ''}
+        </div>
+      </div>
+      ${i.reservation_id
+        ? `<span class="pill reserved">✓ Reserved by ${i.guest_name}</span>`
+        : `<button class="btn btn-marigold" onclick="openReserve(${i.id}, '${i.title.replace(/'/g, "\\'")}')">Reserve</button>`
+      }
+    </div>
+  `).join('');
+}
+
+function openReserve(itemId, title) {
+  activeItemId = itemId;
+  document.getElementById('reserve-item-title').textContent = title;
+  document.getElementById('reserve-modal').style.display = 'flex';
+}
+document.getElementById('cancel-reserve').addEventListener('click', () => {
+  document.getElementById('reserve-modal').style.display = 'none';
+});
+document.getElementById('confirm-reserve').addEventListener('click', async () => {
+  const guest_name = document.getElementById('guest_name').value.trim();
+  if (!guest_name) { toast('Please add your name'); return; }
+  const payload = {
+    item_id: activeItemId,
+    guest_name,
+    guest_email: document.getElementById('guest_email').value.trim(),
+    message: document.getElementById('guest_message').value.trim(),
+  };
+  const res = await fetch('/api/reserve', { method: 'POST', body: JSON.stringify(payload) });
+  if (!res.ok) {
+    toast((await res.json()).error || 'Could not reserve this gift');
+    return;
+  }
+  document.getElementById('reserve-modal').style.display = 'none';
+  toast('Reserved — thank you!');
+  loadItems();
+});
+
+loadRegistry();
+</script>
+</body>
+</html>

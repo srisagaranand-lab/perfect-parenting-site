@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find a Wishlist — Gifting — The Perfect Parenting Company</title>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<div data-include="/partials/header.html"></div>
+
+<section class="section" style="padding-top:48px;">
+  <div class="wrap" style="max-width:640px;">
+    <span class="eyebrow">Gifting</span>
+    <h1>Find their wishlist</h1>
+    <p>Search by the parent's name, or paste the link they shared with you directly into your browser.</p>
+
+    <form id="search-form" class="form-card" style="margin-top:20px;display:flex;gap:12px;">
+      <input id="q" placeholder="e.g. Aanya Sharma" style="flex:1;">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
+    <div id="results" style="margin-top:24px;"></div>
+  </div>
+</section>
+
+<div data-include="/partials/footer.html"></div>
+<script>
+document.getElementById('search-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const q = document.getElementById('q').value.trim();
+  const el = document.getElementById('results');
+  if (!q) return;
+  el.innerHTML = '<p>Searching…</p>';
+  const res = await fetch(`/api/registries?q=${encodeURIComponent(q)}`);
+  const results = await res.json();
+  if (!results.length) {
+    el.innerHTML = '<p>No wishlist found for that name. Double-check the spelling, or ask them to resend their link.</p>';
+    return;
+  }
+  el.innerHTML = results.map(r => `
+    <a href="/registry-view.html?slug=${r.slug}" class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding:18px 22px;">
+      <div>
+        <div style="font-weight:600;">${r.parent_name}${r.partner_name ? ' & ' + r.partner_name : ''}</div>
+        <div style="font-size:0.82rem;color:var(--ink-soft);">${r.baby_name ? 'Baby ' + r.baby_name + ' · ' : ''}${r.city || ''}</div>
+      </div>
+      <span class="btn btn-outline" style="pointer-events:none;">View wishlist</span>
+    </a>
+  `).join('');
+});
+</script>
+</body>
+</html>

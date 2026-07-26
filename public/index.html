@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Perfect Parenting Company — welcome wishlist</title>
+<meta name="description" content="Create your baby wishlist, share one link with family and friends, and let them compare prices across Amazon, Flipkart and FirstCry before they buy.">
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<div data-include="/partials/header.html"></div>
+
+<section class="section" style="padding-top:56px;">
+  <div class="wrap" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;">
+    <div>
+      <span class="eyebrow">One list · every store · zero duplicate onesies</span>
+      <h1>One list.<br>Everyone gifts right.</h1>
+      <p style="font-size:1.15rem;max-width:480px;">Add anything from Amazon, Flipkart, FirstCry or that one boutique in Bandra. Share a single link. Guests compare prices and reserve gifts so nobody buys the same swing twice.</p>
+      <div style="display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;">
+        <a href="/create-registry.html" class="btn btn-primary">Create a Wishlist</a>
+        <a href="/find-registry.html" class="btn btn-outline">Find a Wishlist</a>
+      </div>
+      <p style="margin-top:22px;font-size:0.85rem;color:var(--ink-soft);">We don't get paid to push one store over another. You always buy directly from the retailer you pick.</p>
+    </div>
+
+    <div class="card" style="position:relative;">
+      <div class="eyebrow">Preview · Aanya &amp; Rohan's wishlist</div>
+      <div id="demo-items"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
+    <div>
+      <div class="eyebrow">01 · Build</div>
+      <h3>Add anything, from anywhere</h3>
+      <p>Paste a link from Amazon, Flipkart or FirstCry, or add an item by hand. One list, every store.</p>
+    </div>
+    <div>
+      <div class="eyebrow">02 · Share</div>
+      <h3>One link, sent once</h3>
+      <p>Text it, WhatsApp it, print it on the invite. No login required for anyone who wants to gift.</p>
+    </div>
+    <div>
+      <div class="eyebrow">03 · Receive</div>
+      <h3>No duplicate gifts</h3>
+      <p>Guests reserve an item when they buy it, so the next person sees it's already taken care of.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="text-align:center;max-width:640px;margin:0 auto 40px;">
+    <span class="eyebrow">The gifting tab</span>
+    <h2>Giving a gift? Find their wishlist in seconds.</h2>
+    <p>Search by the parent's name, browse the list, compare prices across stores, and reserve what you're buying — so the next guest doesn't buy it too.</p>
+    <a href="/find-registry.html" class="btn btn-marigold" style="margin-top:8px;">Go to Gifting</a>
+  </div>
+</section>
+
+<div data-include="/partials/footer.html"></div>
+
+<script>
+const demo = [
+  { title: 'Convertible Car Seat', store: 'FirstCry', price: 12499, reserved: false },
+  { title: 'Baby Monitor with Camera', store: 'Amazon', price: 4299, reserved: true },
+  { title: 'Muslin Swaddle Set (6-pack)', store: 'Flipkart', price: 1199, reserved: false },
+];
+const el = document.getElementById('demo-items');
+el.innerHTML = demo.map(i => `
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);">
+    <div>
+      <div style="font-weight:600;">${i.title}</div>
+      <div style="font-size:0.82rem;color:var(--ink-soft);">${i.store} · ₹${i.price.toLocaleString('en-IN')}</div>
+    </div>
+    <span class="pill ${i.reserved ? 'reserved' : 'open'}">${i.reserved ? '✓ Reserved' : 'Open'}</span>
+  </div>
+`).join('');
+</script>
+</body>
+</html>
