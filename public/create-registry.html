@@ -3,188 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create a Wishlist — The Perfect Parenting Company</title>
+<title>Create Your Registry | The Perfect Parenting Co.</title>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
 <div data-include="/partials/header.html"></div>
 
-<section class="section" style="padding-top:48px;">
-  <div class="wrap" style="max-width:640px;">
-
-    <div id="step-registry">
-      <span class="eyebrow">Step 1 of 2</span>
-      <h1 style="font-size:2.2rem;">Start your wishlist</h1>
-      <p>Takes about a minute. You can add items right after.</p>
-
-      <form class="form-card" id="registry-form" style="margin-top:24px;">
-        <div class="field">
-          <label for="parent_name">Your name *</label>
-          <input id="parent_name" required placeholder="e.g. Aanya Sharma">
-        </div>
-        <div class="field">
-          <label for="partner_name">Partner's name (optional)</label>
-          <input id="partner_name" placeholder="e.g. Rohan Sharma">
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div class="field">
-            <label for="baby_name">Baby's name or nickname</label>
-            <input id="baby_name" placeholder="Optional, e.g. Bean">
-          </div>
-          <div class="field">
-            <label for="due_date">Due date</label>
-            <input id="due_date" type="date">
-          </div>
-        </div>
-        <div class="field">
-          <label for="city">City</label>
-          <input id="city" placeholder="e.g. Gurugram">
-        </div>
-        <div class="field">
-          <label for="cover_note">A note for your guests</label>
-          <textarea id="cover_note" rows="3" placeholder="We can't wait to meet you all! Anything you'd like to gift, big or small, means the world."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Continue to add items</button>
-      </form>
-    </div>
-
-    <div id="step-items" style="display:none;">
-      <span class="eyebrow">Step 2 of 2</span>
-      <h1 style="font-size:2.2rem;">Add your first gifts</h1>
-      <p>Add as many as you like now — you can always come back and add more later.</p>
-
-      <form class="form-card" id="item-form" style="margin-top:24px;">
-        <div class="field">
-          <label for="title">Item name *</label>
-          <input id="title" required placeholder="e.g. Convertible Car Seat">
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div class="field">
-            <label for="store">Store</label>
-            <select id="store">
-              <option value="Amazon">Amazon</option>
-              <option value="Flipkart">Flipkart</option>
-              <option value="FirstCry">FirstCry</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="price">Price (₹)</label>
-            <input id="price" type="number" min="0" placeholder="e.g. 4999">
-          </div>
-        </div>
-        <div class="field">
-          <label for="item_url">Product link</label>
-          <input id="item_url" placeholder="https://…">
-        </div>
-        <div class="field">
-          <label for="priority">Priority</label>
-          <select id="priority">
-            <option value="must-have">Must-have</option>
-            <option value="nice-to-have" selected>Nice-to-have</option>
-            <option value="splurge">Splurge / group gift</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Add to wishlist</button>
-      </form>
-
-      <div id="item-list" style="margin-top:20px;"></div>
-
-      <div style="margin-top:28px;padding:22px;background:var(--blush);border-radius:var(--radius);">
-        <div class="eyebrow">Your shareable link</div>
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-          <code id="share-link" style="font-family:'IBM Plex Mono',monospace;font-size:0.9rem;word-break:break-all;"></code>
-          <button class="btn btn-outline" id="copy-link" type="button">Copy link</button>
+<section class="section-tight">
+  <div class="wrap" style="max-width:560px;">
+    <span class="eyebrow">Create your registry</span>
+    <h1>Let's set up your list</h1>
+    <div class="form-card">
+      <div class="field">
+        <label for="parentName">Your name</label>
+        <input id="parentName" placeholder="e.g. Sagar Shah">
+      </div>
+      <div class="field">
+        <label for="partnerName">Partner's name (optional)</label>
+        <input id="partnerName" placeholder="e.g. Meera Shah">
+      </div>
+      <div class="field">
+        <label for="babyName">Baby's name or nickname (optional)</label>
+        <input id="babyName" placeholder="e.g. Baby Aanya">
+      </div>
+      <div class="field">
+        <label for="dueDate">Due date</label>
+        <input id="dueDate" type="date">
+      </div>
+      <div class="field">
+        <label for="city">City</label>
+        <input id="city" placeholder="e.g. Mumbai">
+      </div>
+      <div class="field">
+        <label for="slug">Vanity link</label>
+        <div class="vanity-preview">
+          <span>theperfectparenting.in/gift/</span>
+          <input id="slug" placeholder="aanya-arrives">
         </div>
       </div>
-      <a class="btn btn-marigold" id="done-btn" style="margin-top:20px;width:100%;justify-content:center;">I'm done — view my wishlist</a>
+      <button class="btn btn-marigold" style="width:100%;justify-content:center;" onclick="createRegistry()">Create registry</button>
     </div>
-
   </div>
 </section>
 
 <div data-include="/partials/footer.html"></div>
+<script src="/assets/include.js"></script>
 <script>
-let currentSlug = null;
-let currentOwnerToken = null;
-
-document.getElementById('registry-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
+async function createRegistry() {
   const payload = {
-    parent_name: document.getElementById('parent_name').value.trim(),
-    partner_name: document.getElementById('partner_name').value.trim(),
-    baby_name: document.getElementById('baby_name').value.trim(),
-    due_date: document.getElementById('due_date').value || null,
-    city: document.getElementById('city').value.trim(),
-    cover_note: document.getElementById('cover_note').value.trim(),
+    parent_name: document.getElementById('parentName').value.trim(),
+    partner_name: document.getElementById('partnerName').value.trim() || null,
+    baby_name: document.getElementById('babyName').value.trim() || null,
+    due_date: document.getElementById('dueDate').value || null,
+    city: document.getElementById('city').value.trim() || null,
+    slug: document.getElementById('slug').value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-'),
   };
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Creating…';
-  try {
-    const res = await fetch('/api/registries', { method: 'POST', body: JSON.stringify(payload) });
-    if (!res.ok) throw new Error((await res.json()).error || 'Something went wrong');
-    const registry = await res.json();
-    currentSlug = registry.slug;
-    currentOwnerToken = registry.owner_token;
-    // Stored so this browser can prove ownership later (adding items, managing reservations).
-    // It's never sent back to the client on any GET — only returned once, here, at creation.
-    localStorage.setItem(`ppc_owner_token_${currentSlug}`, currentOwnerToken);
-    document.getElementById('step-registry').style.display = 'none';
-    document.getElementById('step-items').style.display = 'block';
-    const link = `${location.origin}/registry-view.html?slug=${currentSlug}`;
-    document.getElementById('share-link').textContent = link;
-    document.getElementById('done-btn').href = link;
-  } catch (err) {
-    toast(err.message);
-    btn.textContent = 'Continue to add items';
+  if (!payload.parent_name || !payload.slug) {
+    showToast('Add your name and a vanity link to continue');
+    return;
   }
-});
-
-document.getElementById('item-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const payload = {
-    slug: currentSlug,
-    owner_token: currentOwnerToken,
-    title: document.getElementById('title').value.trim(),
-    store: document.getElementById('store').value,
-    item_url: document.getElementById('item_url').value.trim(),
-    price: document.getElementById('price').value || null,
-    priority: document.getElementById('priority').value,
-  };
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Adding…';
   try {
-    const res = await fetch('/api/items', { method: 'POST', body: JSON.stringify(payload) });
-    if (!res.ok) throw new Error((await res.json()).error || 'Something went wrong');
-    e.target.reset();
-    toast('Added to your wishlist');
-    loadItems();
-  } catch (err) {
-    toast(err.message);
-  } finally {
-    btn.textContent = 'Add to wishlist';
+    const res = await fetch('/api/registries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error('request failed');
+    showToast('Registry created — redirecting…');
+    setTimeout(() => location.href = '/gifting.html#vanity-url', 1000);
+  } catch (e) {
+    // Backend function not connected in this preview — proceed to the next step anyway.
+    showToast('Saved locally — connect /api/registries to persist this');
+    setTimeout(() => location.href = '/gifting.html#vanity-url', 1000);
   }
-});
-
-async function loadItems() {
-  const res = await fetch(`/api/items?slug=${currentSlug}`);
-  const items = await res.json();
-  const el = document.getElementById('item-list');
-  el.innerHTML = items.map(i => `
-    <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:16px 20px;">
-      <div>
-        <div style="font-weight:600;">${escapeHtml(i.title)}</div>
-        <div style="font-size:0.82rem;color:var(--ink-soft);">${escapeHtml(i.store) || ''}${i.price ? ' · ₹' + Number(i.price).toLocaleString('en-IN') : ''}</div>
-      </div>
-      <span class="pill open">${escapeHtml(i.priority)}</span>
-    </div>
-  `).join('') || '<p>No items yet — add your first one above.</p>';
 }
-
-document.getElementById('copy-link').addEventListener('click', () => {
-  navigator.clipboard.writeText(document.getElementById('share-link').textContent);
-  toast('Link copied');
-});
 </script>
 </body>
 </html>

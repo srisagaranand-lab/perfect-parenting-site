@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curated Marketplace — Compare Baby Product Prices | The Perfect Parenting Co.</title>
+<meta name="description" content="Compare the same baby product across Amazon, Flipkart, FirstCry and quick commerce — one table, no tab-switching.">
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<div data-include="/partials/header.html"></div>
+
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <span class="eyebrow">02 · Curated Marketplace</span>
+    <h1 style="max-width:640px;">The same product, priced everywhere at once.</h1>
+    <p style="max-width:560px;font-size:1.02rem;">We track the exact same SKU across Amazon, Flipkart, FirstCry and quick commerce apps, so you never find out you overpaid by ₹800 after the fact.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="filter-row" id="filterRow">
+      <button class="filter-chip active" data-cat="all">All categories</button>
+      <button class="filter-chip" data-cat="strollers">Strollers</button>
+      <button class="filter-chip" data-cat="car-seats">Car seats</button>
+      <button class="filter-chip" data-cat="feeding">Feeding</button>
+      <button class="filter-chip" data-cat="diapering">Diapering</button>
+      <button class="filter-chip" data-cat="nursery">Nursery</button>
+    </div>
+
+    <table class="compare-table" id="compareTable">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th><span class="retailer-badge"><span class="dot amazon"></span>Amazon</span></th>
+          <th><span class="retailer-badge"><span class="dot flipkart"></span>Flipkart</span></th>
+          <th><span class="retailer-badge"><span class="dot firstcry"></span>FirstCry</span></th>
+          <th><span class="retailer-badge"><span class="dot quick"></span>Quick commerce</span></th>
+          <th>Add to</th>
+        </tr>
+      </thead>
+      <tbody id="compareBody"></tbody>
+    </table>
+    <p style="font-size:0.8rem;margin-top:14px;">Prices shown are illustrative sample data for this preview build — live pricing connects via retailer affiliate feeds once published.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);border-top:1px solid var(--line);">
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div class="card">
+      <span class="eyebrow">Why we compare</span>
+      <h3>No more tab-switching</h3>
+      <p style="font-size:0.9rem;">One search, every price, side by side — including quick commerce for last-minute needs.</p>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Straight to your registry</span>
+      <h3>Add without leaving the page</h3>
+      <p style="font-size:0.9rem;">Found the best price? Add it straight to your registry or a friend's gifting list.</p>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Always current</span>
+      <h3>Prices refresh regularly</h3>
+      <p style="font-size:0.9rem;">We flag when a price drops so you can time bigger purchases like strollers and car seats.</p>
+    </div>
+  </div>
+</section>
+
+<div data-include="/partials/footer.html"></div>
+<script src="/assets/include.js"></script>
+<script>
+const PRODUCTS = [
+  { name: "Convertible Car Seat, 0–7 yrs", cat: "car-seats", amazon: 12999, flipkart: 11499, firstcry: 12250, quick: null },
+  { name: "Lightweight Travel Stroller", cat: "strollers", amazon: 8499, flipkart: 8999, firstcry: 7999, quick: null },
+  { name: "Electric Breast Pump", cat: "feeding", amazon: 5499, flipkart: 5299, firstcry: 5799, quick: 6199 },
+  { name: "Anti-Colic Feeding Bottle Set", cat: "feeding", amazon: 899, flipkart: 849, firstcry: 949, quick: 999 },
+  { name: "Diaper Pack, Size M (72 pcs)", cat: "diapering", amazon: 799, flipkart: 779, firstcry: 819, quick: 849 },
+  { name: "Diaper Rash Cream 100g", cat: "diapering", amazon: 249, flipkart: 239, firstcry: 259, quick: 279 },
+  { name: "Nursery Glider Chair", cat: "nursery", amazon: 15999, flipkart: 15499, firstcry: 16499, quick: null },
+  { name: "Baby Monitor with Camera", cat: "nursery", amazon: 4999, flipkart: 4799, firstcry: 5299, quick: null },
+  { name: "3-in-1 Travel System Stroller", cat: "strollers", amazon: 18999, flipkart: 17999, firstcry: 18499, quick: null },
+  { name: "Infant Car Seat, 0–15 months", cat: "car-seats", amazon: 9499, flipkart: 9299, firstcry: 9799, quick: null },
+];
+
+function fmt(v) { return v == null ? "—" : "₹" + v.toLocaleString("en-IN"); }
+
+function render(cat) {
+  const body = document.getElementById("compareBody");
+  body.innerHTML = "";
+  const rows = cat === "all" ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+  rows.forEach(p => {
+    const prices = [p.amazon, p.flipkart, p.firstcry, p.quick].filter(v => v != null);
+    const min = Math.min(...prices);
+    const cell = (v) => `<td class="price-cell${v === min ? ' lowest' : ''}">${fmt(v)}</td>`;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><strong>${p.name}</strong></td>
+      ${cell(p.amazon)}${cell(p.flipkart)}${cell(p.firstcry)}${cell(p.quick)}
+      <td><button class="btn btn-sm btn-outline" onclick="showToast('Added — pick a registry on the next screen')">+ Add</button></td>
+    `;
+    body.appendChild(tr);
+  });
+}
+
+document.getElementById("filterRow").addEventListener("click", (e) => {
+  const btn = e.target.closest(".filter-chip");
+  if (!btn) return;
+  document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+  btn.classList.add("active");
+  render(btn.dataset.cat);
+});
+
+const params = new URLSearchParams(location.search);
+const initialCat = params.get("cat") || "all";
+document.addEventListener("DOMContentLoaded", () => {
+  const match = document.querySelector(`.filter-chip[data-cat="${initialCat}"]`);
+  if (match) {
+    document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+    match.classList.add("active");
+  }
+  render(initialCat);
+});
+</script>
+</body>
+</html>

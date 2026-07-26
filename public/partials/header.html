@@ -1,98 +1,93 @@
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="logo"><span class="stitch">✶</span> The Perfect Parenting Co.</a>
+    <a class="logo" href="/index.html"><span class="stitch">✶</span> The Perfect Parenting Co.</a>
 
-    <nav class="main-nav">
+    <nav class="primary-nav">
       <div class="nav-item">
-        <button class="nav-top">Registry <span>▾</span></button>
+        <button class="nav-top" onclick="toggleMega(this)">Registry <span>▾</span></button>
         <div class="mega">
           <div class="mega-col">
-            <a href="/why-us.html">Why Us?</a>
-            <a href="/create-registry.html">Create a Wishlist</a>
-            <a href="/find-registry.html">Find a Wishlist</a>
-            <a href="/checklist.html">Baby Checklist</a>
-            <a href="/due-date-calculator.html">Due Date Calculator</a>
+            <h4>Get Started</h4>
+            <a href="/create-registry.html">Create your registry</a>
+            <a href="/find-registry.html">Find a registry</a>
+            <a href="/registry.html">How registries work</a>
+          </div>
+          <div class="mega-col">
+            <h4>Plan</h4>
+            <a href="/education.html#hospital-bag">Hospital bag checklist</a>
+            <a href="/financial.html#due-date">Due date planning</a>
           </div>
         </div>
       </div>
 
       <div class="nav-item">
-        <button class="nav-top">Shop <span>▾</span></button>
-        <div class="mega wide">
-          <div class="mega-col">
-            <h4>Start here</h4>
-            <a href="/shop.html">Shop Home</a>
-            <a href="/shop.html?cat=newborn-must-haves">Newborn Must-Haves</a>
-            <a href="/shop.html?cat=new-arrivals">New Arrivals</a>
-            <a href="/shop.html?cat=top-registered">Top Registered</a>
-          </div>
-          <div class="mega-col">
-            <h4>Categories</h4>
-            <a href="/shop.html?cat=clothing">Clothing & Accessories</a>
-            <a href="/shop.html?cat=nursery">Nursery</a>
-            <a href="/shop.html?cat=strollers">Strollers</a>
-            <a href="/shop.html?cat=car-seats">Car Seats</a>
-          </div>
-          <div class="mega-col">
-            <h4>Gifting</h4>
-            <a href="/shop.html?cat=gift-shop">Gift Shop</a>
-            <a href="/shop.html?cat=cash-funds">Gift Cards, Favours & Cash Funds</a>
-          </div>
-          <div class="mega-col">
-            <h4>Deals</h4>
-            <a href="/shop.html?cat=sale">Sale</a>
-            <a href="/shop.html?cat=clearance">Clearance</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <button class="nav-top">Guides <span>▾</span></button>
-        <div class="mega wide">
-          <div class="mega-col">
-            <h4>Products</h4>
-            <a href="/guides.html?sec=products">Product Guides</a>
-          </div>
-          <div class="mega-col">
-            <h4>Registry Info</h4>
-            <a href="/guides.html?sec=registry-info">Registry Info</a>
-          </div>
-          <div class="mega-col">
-            <h4>Pregnancy</h4>
-            <a href="/guides.html?sec=pregnancy">Pregnancy</a>
-          </div>
-          <div class="mega-col">
-            <h4>Baby Names</h4>
-            <a href="/guides.html?sec=names">Baby Names</a>
-          </div>
-          <div class="mega-col">
-            <h4>Parenting</h4>
-            <a href="/guides.html?sec=parenting">Parenting</a>
-          </div>
-          <div class="mega-col">
-            <h4>Featured</h4>
-            <a href="/guides.html?sec=featured">Featured</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <button class="nav-top">Money <span>▾</span></button>
+        <button class="nav-top" onclick="toggleMega(this)">Marketplace <span>▾</span></button>
         <div class="mega">
           <div class="mega-col">
-            <a href="/money.html">Family Fund</a>
-            <a href="/money.html?sec=group-gifting">Group Gifting</a>
+            <h4>Compare & Shop</h4>
+            <a href="/marketplace.html">Curated marketplace</a>
+            <a href="/marketplace.html?cat=strollers">Strollers</a>
+            <a href="/marketplace.html?cat=car-seats">Car seats</a>
+            <a href="/marketplace.html?cat=feeding">Feeding</a>
+          </div>
+          <div class="mega-col">
+            <h4>Retailers</h4>
+            <a href="/marketplace.html?store=amazon">Amazon</a>
+            <a href="/marketplace.html?store=flipkart">Flipkart</a>
+            <a href="/marketplace.html?store=firstcry">FirstCry</a>
+            <a href="/marketplace.html?store=quick">Quick commerce</a>
           </div>
         </div>
       </div>
 
       <div class="nav-item">
-        <button class="nav-top">Health <span>▾</span></button>
+        <button class="nav-top" onclick="toggleMega(this)">Gifting <span>▾</span></button>
         <div class="mega">
           <div class="mega-col">
-            <a href="/health.html">Insurance-Covered Breast Pumps</a>
-            <a href="/health.html?sec=parts">Breast Pump Parts</a>
-            <a href="/health.html?sec=guides">Health Guides</a>
+            <h4>Gift Givers</h4>
+            <a href="/gifting.html">Find a wishlist</a>
+            <a href="/gifting.html#chip-in">Chip in on a gift</a>
+          </div>
+          <div class="mega-col">
+            <h4>List Owners</h4>
+            <a href="/gifting.html#vanity-url">Set your vanity link</a>
+            <a href="/gifting.html#sharing">Choose who can see it</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-top" onclick="toggleMega(this)">Financial <span>▾</span></button>
+        <div class="mega">
+          <div class="mega-col">
+            <h4>Plan</h4>
+            <a href="/financial.html#schemes">Govt schemes</a>
+            <a href="/financial.html#insurance">Insurance hub</a>
+            <a href="/financial.html#investing">Investing for baby</a>
+          </div>
+          <div class="mega-col">
+            <h4>Manage</h4>
+            <a href="/financial.html#tax">Tax planning</a>
+            <a href="/financial.html#legal">Legal & documentation</a>
+            <a href="/financial.html#calculators">Calculators</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-top" onclick="toggleMega(this)">Education <span>▾</span></button>
+        <div class="mega">
+          <div class="mega-col">
+            <h4>Guides</h4>
+            <a href="/education.html#hospitals">Hospitals near you</a>
+            <a href="/education.html#gynae">Find a gynaecologist</a>
+            <a href="/education.html#vendors">Local vendors</a>
+          </div>
+          <div class="mega-col">
+            <h4>Community</h4>
+            <a href="/education.html#forum">Parent forum</a>
+            <a href="/education.html#health-planner">Health planner</a>
+            <a href="/education.html#policy">Govt policy guide</a>
           </div>
         </div>
       </div>
