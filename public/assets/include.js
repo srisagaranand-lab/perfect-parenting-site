@@ -34,6 +34,10 @@ async function includePartials() {
       if (!wasOpen) item.classList.add('open');
     });
   });
+  const headerSearch = document.getElementById('headerSearch');
+  if (headerSearch) headerSearch.addEventListener('click', () => { location.href = '/find-registry.html'; });
+  const navToggleBtn = document.getElementById('navToggleBtn');
+  if (navToggleBtn) navToggleBtn.addEventListener('click', () => { document.body.classList.toggle('nav-open'); });
   document.addEventListener('click', () => {
     document.querySelectorAll('.nav-item.open').forEach((n) => n.classList.remove('open'));
   });

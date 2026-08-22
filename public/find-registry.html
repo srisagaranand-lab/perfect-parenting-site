@@ -15,7 +15,7 @@
     <h1>Search by name or link</h1>
     <div class="card" style="display:flex;gap:10px;">
       <input id="searchTerm" placeholder="e.g. aanya-arrives or Sagar Shah">
-      <button class="btn btn-marigold" onclick="findRegistry()">Search</button>
+      <button class="btn btn-marigold" id="searchBtn">Search</button>
     </div>
     <div id="results" style="margin-top:20px;"></div>
   </div>
@@ -23,30 +23,7 @@
 
 <div data-include="/partials/footer.html"></div>
 <script src="/assets/include.js"></script>
-<script>
-async function findRegistry() {
-  const term = document.getElementById('searchTerm').value.trim();
-  const results = document.getElementById('results');
-  if (!term) { showToast('Type a name or link to search'); return; }
-  results.innerHTML = '<p style="font-size:0.9rem;">Searching…</p>';
-  try {
-    const res = await fetch('/api/registries?search=' + encodeURIComponent(term));
-    if (!res.ok) throw new Error('request failed');
-    const data = await res.json();
-    if (!data.length) {
-      results.innerHTML = '<p style="font-size:0.9rem;">No registry found for "' + term + '".</p>';
-      return;
-    }
-    results.innerHTML = data.map(r => `
-      <a class="card card-hover" style="display:block;margin-bottom:10px;" href="/gift/${r.slug}">
-        <strong>${r.baby_name || r.parent_name}'s registry</strong>
-        <p style="font-size:0.85rem;margin:4px 0 0;">theperfectparenting.in/gift/${r.slug}</p>
-      </a>
-    `).join('');
-  } catch (e) {
-    results.innerHTML = '<p style="font-size:0.9rem;">Search isn\'t connected in this preview — hook this page up to /api/registries once the backend is live.</p>';
-  }
-}
-</script>
+<script src="/assets/pages/find-registry.js"></script>
+
 </body>
 </html>

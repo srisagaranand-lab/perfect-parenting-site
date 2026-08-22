@@ -148,6 +148,7 @@
 <body>
 
 <div data-include="/partials/header.html"></div>
+<noscript><style>.story section, .story-hero { opacity: 1 !important; transform: none !important; }</style></noscript>
 
 <div class="story">
 
@@ -287,13 +288,7 @@
 
 <div data-include="/partials/footer.html"></div>
 <script src="/assets/include.js"></script>
-<script>
-  const storyObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('story-visible');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.story section, .story-hero').forEach((el) => storyObserver.observe(el));
-</script>
+<script src="/assets/pages/home.js"></script>
+
 </body>
 </html>

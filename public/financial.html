@@ -115,7 +115,7 @@
         <div class="field"><label for="sipAmt">Monthly amount (₹)</label><input id="sipAmt" type="number" value="5000"></div>
         <div class="field"><label for="sipYears">Years</label><input id="sipYears" type="number" value="18"></div>
         <div class="field"><label for="sipRate">Expected annual return (%)</label><input id="sipRate" type="number" value="10"></div>
-        <button class="btn btn-primary" onclick="calcSIP()">Calculate</button>
+        <button class="btn btn-primary" id="sipCalcBtn">Calculate</button>
         <div class="calc-result" id="sipResult" style="display:none;">
           <span class="eyebrow">Estimated corpus</span>
           <div class="big" id="sipBig">—</div>
@@ -127,7 +127,7 @@
         <div class="field"><label for="ppfAmt">Yearly deposit (₹)</label><input id="ppfAmt" type="number" value="50000"></div>
         <div class="field"><label for="ppfYears">Years (min 15)</label><input id="ppfYears" type="number" value="15"></div>
         <div class="field"><label for="ppfRate">Current PPF rate (%)</label><input id="ppfRate" type="number" value="7.1" step="0.1"></div>
-        <button class="btn btn-primary" onclick="calcPPF()">Calculate</button>
+        <button class="btn btn-primary" id="ppfCalcBtn">Calculate</button>
         <div class="calc-result" id="ppfResult" style="display:none;">
           <span class="eyebrow">Maturity value</span>
           <div class="big" id="ppfBig">—</div>
@@ -141,34 +141,7 @@
 
 <div data-include="/partials/footer.html"></div>
 <script src="/assets/include.js"></script>
-<script>
-function inr(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+<script src="/assets/pages/financial.js"></script>
 
-function calcSIP() {
-  const P = parseFloat(document.getElementById('sipAmt').value) || 0;
-  const years = parseFloat(document.getElementById('sipYears').value) || 0;
-  const annualRate = parseFloat(document.getElementById('sipRate').value) || 0;
-  const n = years * 12;
-  const r = annualRate / 100 / 12;
-  const fv = r === 0 ? P * n : P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
-  document.getElementById('sipResult').style.display = 'block';
-  document.getElementById('sipBig').textContent = inr(fv);
-  document.getElementById('sipInvested').textContent = inr(P * n);
-}
-
-function calcPPF() {
-  const P = parseFloat(document.getElementById('ppfAmt').value) || 0;
-  let years = parseFloat(document.getElementById('ppfYears').value) || 0;
-  if (years < 15) years = 15;
-  const r = (parseFloat(document.getElementById('ppfRate').value) || 0) / 100;
-  let balance = 0;
-  for (let i = 0; i < years; i++) {
-    balance = (balance + P) * (1 + r);
-  }
-  document.getElementById('ppfResult').style.display = 'block';
-  document.getElementById('ppfBig').textContent = inr(balance);
-  document.getElementById('ppfInvested').textContent = inr(P * years);
-}
-</script>
 </body>
 </html>
