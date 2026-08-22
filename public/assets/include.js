@@ -51,5 +51,7 @@ function toast(message) {
   clearTimeout(el._t);
   el._t = setTimeout(() => el.classList.remove('show'), 2600);
 }
+// Alias — some pages call showToast() instead of toast(); keep both working.
+function showToast(message) { toast(message); }
 
 document.addEventListener('DOMContentLoaded', includePartials);
