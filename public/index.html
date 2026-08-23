@@ -47,21 +47,19 @@
   .pj-check-list svg { width: 18px; height: 18px; stroke: var(--marigold); flex: 0 0 auto; }
 
   /* Registry phone mockup collage */
-  .pj-module-media { position: relative; min-height: 380px; }
-  .pj-phone-img { position: absolute; left: 0; top: 0; width: 210px; border-radius: 20px; overflow: hidden; box-shadow: 0 24px 50px -18px rgba(35,41,31,.3); z-index: 2; }
+  .pj-module-media { position: relative; min-height: 430px; }
+  .pj-phone-img { position: absolute; left: 0; top: 0; width: 205px; border-radius: 20px; overflow: hidden; box-shadow: 0 24px 50px -18px rgba(35,41,31,.32); z-index: 3; }
   .pj-phone-img img { width: 100%; display: block; }
-  .pj-module-photo { position: absolute; right: 30px; top: 20px; width: 190px; height: 190px; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 1; }
+  .pj-module-photo { position: absolute; left: 155px; top: 130px; width: 185px; height: 185px; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 2; }
   .pj-module-photo img { width:100%; height:100%; object-fit:cover; }
-  .pj-checklist-card { position: absolute; right: 0; bottom: 0; width: 190px; background: #fff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 3; transform: rotate(3deg); }
+  .pj-checklist-card { position: absolute; right: 0; bottom: 10px; width: 185px; background: #fff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 4; transform: rotate(4deg); }
   .pj-checklist-card h5 { font-family:'Fraunces',serif; font-size:.82rem; margin-bottom:8px; }
   .pj-checklist-card div { font-size:.7rem; color:var(--ink-soft); padding:3px 0; display:flex; align-items:center; gap:6px; }
   .pj-checklist-card svg { width:12px; height:12px; stroke:var(--marigold); }
 
   /* Marketplace collage */
-  .pj-shop-photo { border-radius: 20px; overflow: hidden; position: relative; }
+  .pj-shop-photo { border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 20px 44px -18px rgba(35,41,31,.3); }
   .pj-shop-photo img { width: 100%; display: block; border-radius: 20px; }
-  .pj-toddler-photo { position: absolute; right: -20px; bottom: -40px; width: 160px; height: 160px; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(35,41,31,.3); }
-  .pj-toddler-photo img { width:100%; height:100%; object-fit:cover; }
 
   /* Education collage */
   .pj-edu-media { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
@@ -72,7 +70,7 @@
   .pj-edu-caption span { font-size:.72rem; color: var(--ink-soft); }
   .pj-edu-side { display: flex; flex-direction: column; gap: 16px; }
   .pj-edu-tile { position: relative; border-radius: 18px; overflow: hidden; flex: 1; }
-  .pj-edu-tile img { width: 100%; height: 100%; object-fit: cover; min-height: 140px; }
+  .pj-edu-tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 32%; min-height: 140px; }
   .pj-edu-tile .tag { position: absolute; right: 10px; bottom: 10px; left:10px; background: #fff; border-radius: 10px; padding: 8px 10px; box-shadow: 0 8px 18px -10px rgba(35,41,31,.3); }
   .pj-edu-tile .tag b { display:block; font-size:.74rem; font-family:'Fraunces',serif; }
   .pj-edu-tile .tag span { font-size:.66rem; color: var(--ink-soft); }
@@ -99,7 +97,7 @@
     .pj-hero-grid { grid-template-columns: 1fr; }
     .pj-module, .pj-module.reverse { grid-template-columns: 1fr; gap: 34px; }
     .pj-module.reverse .pj-module-text, .pj-module.reverse .pj-module-media { order: initial; }
-    .pj-module-media { min-height: 320px; margin-top: 20px; }
+    .pj-module-media { min-height: 430px; margin-top: 20px; }
     .pj-edu-media { grid-template-columns: 1fr; }
     .pj-trust-grid { grid-template-columns: 1fr 1fr; }
     .pj-final { grid-template-columns: 1fr; }
@@ -144,8 +142,7 @@
 <section class="pj-band" style="padding-bottom:0;">
   <div class="pj-wrap">
     <div class="pj-intro">
-      <span class="eyebrow" style="justify-content:center;display:flex;">Your parenting journey, simplified</span>
-      <h2>Three connected modules. One seamless experience.</h2>
+      <h2>Your parenting journey, simplified</h2>
     </div>
 
     <!-- REGISTRY -->
@@ -187,11 +184,10 @@
         </ul>
         <a href="/marketplace.html" class="btn btn-primary" style="margin-top:22px;">Explore Marketplace →</a>
       </div>
-      <div class="pj-module-media">
+      <div class="pj-module-media" style="min-height:0;">
         <div class="pj-shop-photo">
-          <img src="/assets/images/04_Marketplace_Mother_Shopping_clean.jpg" alt="Parent comparing prices on phone, with Compare and Shop retailer pricing">
+          <img src="/assets/images/04_Marketplace_Mother_Shopping_clean.jpg" alt="Compare and Shop — comparing baby product prices across Amazon, FirstCry and Flipkart">
         </div>
-        <div class="pj-toddler-photo"><img src="/assets/images/05_Marketplace_Toddler.jpg" alt="Toddler playing"></div>
       </div>
     </div>
 
