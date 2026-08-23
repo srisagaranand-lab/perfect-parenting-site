@@ -4,109 +4,121 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Perfect Parenting — Registry, Marketplace &amp; Education</title>
-<meta name="description" content="One registry, a curated marketplace, and expert guidance — everything you need for your baby's first years, in one place.">
+<meta name="description" content="One registry, a curated marketplace, and expert guidance — everything you need for your baby's first years, together.">
 <link rel="stylesheet" href="/assets/styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* Scoped to .bl so this Babylist-referenced palette/type only applies to the home
-     page content — the shared header/footer and every other page keep the site's
-     existing blue/pink system untouched. */
-  .bl {
-    --bl-coral: #FF6152;
-    --bl-coral-dark: #E14636;
-    --bl-navy: #1F2430;
-    --bl-navy-soft: #5C6470;
-    --bl-white: #FFFFFF;
-    --bl-pink-tint: #FDEDEA;
-    --bl-blue-tint: #EAF3FB;
-    --bl-yellow-tint: #FEF6E4;
-    --bl-line: #EFEAE6;
-    font-family: 'Inter', sans-serif;
-    color: var(--bl-navy);
-    background: var(--bl-white);
-  }
-  .bl h1, .bl h2, .bl h3 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; margin: 0; color: var(--bl-navy); }
-  .bl p { color: var(--bl-navy-soft); margin: 0; line-height: 1.55; }
-  .bl-wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
-  .bl-band { padding: 72px 0; }
-
-  .bl-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 15px 30px; border-radius: 999px; font-family: 'Poppins', sans-serif;
-    font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .bl-btn-coral { background: var(--bl-coral); color: #fff; }
-  .bl-btn-coral:hover { background: var(--bl-coral-dark); transform: translateY(-2px); box-shadow: 0 10px 22px -8px rgba(255,97,82,.55); }
-  .bl-btn-outline { background: #fff; color: var(--bl-navy); border: 2px solid var(--bl-navy); }
-  .bl-btn-outline:hover { background: var(--bl-navy); color: #fff; }
+  .pj-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .pj-band { padding: 78px 0; }
+  .pj-eyebrow-divider { display:flex; align-items:center; justify-content:center; gap:10px; margin: 14px 0 0; color: var(--marigold); }
+  .pj-eyebrow-divider .line { width: 40px; height: 1px; background: var(--line); }
 
   /* Hero */
-  .bl-hero { background: var(--bl-pink-tint); padding: 76px 0 0; overflow: hidden; }
-  .bl-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-  .bl-hero h1 { font-size: clamp(2.4rem, 4.4vw, 3.6rem); }
-  .bl-hero p { font-size: 1.12rem; margin-top: 18px; max-width: 440px; }
-  .bl-hero-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
-  .bl-hero-art { display: flex; justify-content: center; align-items: flex-end; height: 100%; }
-  .bl-hero-card { background: #fff; border-radius: 28px 28px 0 0; box-shadow: 0 30px 60px -20px rgba(31,36,48,.22); padding: 30px 30px 0; width: 320px; }
-  .bl-hero-card .bl-mini-row { display:flex; justify-content:space-between; align-items:center; padding: 12px 0; border-bottom: 1px solid var(--bl-line); font-size: .85rem; }
-  .bl-hero-card .bl-mini-row:last-child { border-bottom:none; }
-  .bl-hero-card .bl-dot { width: 34px; height: 34px; border-radius: 10px; background: var(--bl-blue-tint); display:flex; align-items:center; justify-content:center; font-size:1rem; }
+  .pj-hero { padding: 56px 0 0; }
+  .pj-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 50px; align-items: center; }
+  .pj-hero h1 { font-size: clamp(2.6rem, 4.6vw, 4.2rem); line-height: 1.05; }
+  .pj-hero h1 .accent { color: var(--marigold); }
+  .pj-hero p.lede { font-size: 1.1rem; color: var(--ink-soft); margin-top: 18px; max-width: 460px; }
+  .pj-hero-feats { display: flex; gap: 30px; margin-top: 32px; flex-wrap: wrap; }
+  .pj-feat { max-width: 140px; }
+  .pj-feat-icon { width: 52px; height: 52px; border-radius: 999px; background: var(--blush); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .pj-feat-icon svg { width: 22px; height: 22px; stroke: var(--marigold); }
+  .pj-feat b { display: block; font-size: 0.86rem; font-weight: 700; color: var(--ink); }
+  .pj-feat span { font-size: 0.78rem; color: var(--ink-soft); }
+  .pj-hero-media { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4/3.4; }
+  .pj-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pj-heart-line { position: absolute; top: -18px; left: -30px; width: 90px; height: 90px; opacity: 0.9; }
 
-  /* Feature strip: 3 modules as big rounded cards, like Babylist's "shop the best" row */
-  .bl-modules { background: #fff; }
-  .bl-modules-head { text-align: center; max-width: 560px; margin: 0 auto 44px; }
-  .bl-modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-  .bl-mcard { border-radius: 22px; overflow: hidden; background: var(--bl-blue-tint); display: flex; flex-direction: column; transition: transform .18s ease; }
-  .bl-mcard:nth-child(2) { background: var(--bl-pink-tint); }
-  .bl-mcard:nth-child(3) { background: var(--bl-yellow-tint); }
-  .bl-mcard:hover { transform: translateY(-4px); }
-  .bl-mcard-media { height: 170px; display: flex; align-items: center; justify-content: center; }
-  .bl-mcard-media svg { width: 64px; height: 64px; stroke: var(--bl-navy); opacity: .75; }
-  .bl-mcard-body { background: #fff; padding: 26px 24px 28px; flex: 1; display: flex; flex-direction: column; }
-  .bl-mcard-body h3 { font-size: 1.25rem; }
-  .bl-mcard-body p { font-size: .92rem; margin-top: 8px; flex: 1; }
-  .bl-mcard-links { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
-  .bl-mcard-links a { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .88rem; color: var(--bl-coral); text-decoration: none; display: flex; align-items: center; gap: 6px; }
-  .bl-mcard-links a:hover { color: var(--bl-coral-dark); }
+  /* Section intro */
+  .pj-intro { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+  .pj-intro h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); }
+  .pj-intro p { color: var(--ink-soft); margin-top: 8px; }
 
-  /* Split feature: "Add anything from any store" style block */
-  .bl-split { background: var(--bl-blue-tint); }
-  .bl-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  .bl-split h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
-  .bl-split p { margin-top: 14px; font-size: 1.02rem; max-width: 440px; }
-  .bl-split-art { background: #fff; border-radius: 24px; padding: 28px; box-shadow: 0 20px 40px -18px rgba(31,36,48,.18); }
-  .bl-checklist-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--bl-line); font-size: .92rem; font-weight: 500; }
-  .bl-checklist-row:last-child { border-bottom: none; }
-  .bl-check { width: 22px; height: 22px; border-radius: 999px; background: var(--bl-coral); display: flex; align-items: center; justify-content: center; color: #fff; font-size: .75rem; flex: 0 0 auto; }
+  /* Module rows */
+  .pj-module { display: grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items: center; margin-bottom: 110px; }
+  .pj-module.reverse { grid-template-columns: 1.15fr 1fr; }
+  .pj-module.reverse .pj-module-text { order: 2; }
+  .pj-module.reverse .pj-module-media { order: 1; }
+  .pj-module-icon { width: 54px; height: 54px; border-radius: 999px; background: var(--blush); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .pj-module-icon svg { width: 24px; height: 24px; stroke: var(--marigold); }
+  .pj-module-text h3 { font-size: 2rem; }
+  .pj-module-text p.desc { color: var(--ink-soft); margin-top: 10px; max-width: 400px; }
+  .pj-check-list { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .pj-check-list li { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--ink); }
+  .pj-check-list svg { width: 18px; height: 18px; stroke: var(--marigold); flex: 0 0 auto; }
 
-  /* Quick-nav icon strip, like Babylist's bottom icon row */
-  .bl-quicknav { background: #fff; border-top: 1px solid var(--bl-line); }
-  .bl-quicknav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
-  .bl-qn-icon { width: 60px; height: 60px; border-radius: 999px; background: var(--bl-pink-tint); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
-  .bl-qn-icon svg { width: 26px; height: 26px; stroke: var(--bl-coral); }
-  .bl-quicknav h4 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
-  .bl-quicknav p { font-size: .84rem; }
+  /* Registry phone mockup collage */
+  .pj-module-media { position: relative; min-height: 380px; }
+  .pj-phone { position: absolute; left: 0; top: 0; width: 220px; background: #fff; border: 8px solid var(--ink); border-radius: 30px; box-shadow: 0 24px 50px -18px rgba(35,41,31,.3); padding: 14px; z-index: 2; }
+  .pj-phone .ph-head { font-family:'Fraunces',serif; font-weight:700; font-size:.85rem; margin-bottom:4px; }
+  .pj-phone .ph-sub { font-size: .68rem; color: var(--ink-soft); margin-bottom:8px; }
+  .pj-phone .ph-bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; margin-bottom: 14px; }
+  .pj-phone .ph-bar span { display:block; height:100%; width:73%; background: var(--marigold); }
+  .pj-phone .ph-row { display:flex; justify-content:space-between; align-items:center; font-size:.68rem; padding:7px 0; border-bottom:1px solid var(--line); }
+  .pj-phone .ph-row:last-child { border-bottom:none; }
+  .pj-phone .ph-row b { font-size:.72rem; }
+  .pj-module-photo { position: absolute; right: 30px; top: 20px; width: 190px; height: 190px; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 1; }
+  .pj-module-photo img { width:100%; height:100%; object-fit:cover; }
+  .pj-checklist-card { position: absolute; right: 0; bottom: 0; width: 190px; background: #fff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 3; transform: rotate(3deg); }
+  .pj-checklist-card h5 { font-family:'Fraunces',serif; font-size:.82rem; margin-bottom:8px; }
+  .pj-checklist-card div { font-size:.7rem; color:var(--ink-soft); padding:3px 0; display:flex; align-items:center; gap:6px; }
+  .pj-checklist-card svg { width:12px; height:12px; stroke:var(--marigold); }
 
-  /* Final CTA banner */
-  .bl-cta { background: var(--bl-navy); border-radius: 28px; padding: 60px 50px; text-align: center; }
-  .bl-cta h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.3rem); }
-  .bl-cta p { color: #c4c9d4; margin-top: 12px; max-width: 460px; margin-left: auto; margin-right: auto; }
-  .bl-cta-actions { display: flex; gap: 14px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
-  .bl-cta .bl-btn-outline { background: transparent; border-color: #fff; color: #fff; }
-  .bl-cta .bl-btn-outline:hover { background: #fff; color: var(--bl-navy); }
+  /* Marketplace collage */
+  .pj-shop-photo { border-radius: 20px; overflow: hidden; position: relative; }
+  .pj-shop-photo img { width: 100%; aspect-ratio: 4/3.6; object-fit: cover; display: block; }
+  .pj-deal-card { position: absolute; left: 20px; right: 20px; bottom: -30px; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 18px 36px -16px rgba(35,41,31,.3); }
+  .pj-deal-card h5 { font-family:'Fraunces',serif; font-size:.82rem; text-align:center; margin-bottom:10px; }
+  .pj-deal-row { display: flex; gap: 10px; }
+  .pj-deal-item { flex: 1; text-align: center; border-right: 1px solid var(--line); padding-right: 8px; }
+  .pj-deal-item:last-child { border-right: none; padding-right: 0; }
+  .pj-deal-item .retailer { font-size: .68rem; font-weight: 700; margin-bottom: 4px; }
+  .pj-deal-item .price { font-size: .8rem; font-weight: 700; color: var(--ink); }
+  .pj-deal-item .deal-btn { display:block; margin-top:6px; font-size:.62rem; font-weight:600; color: var(--marigold-dark); }
+  .pj-toddler-photo { position: absolute; right: -20px; bottom: -40px; width: 160px; height: 160px; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(35,41,31,.3); }
+  .pj-toddler-photo img { width:100%; height:100%; object-fit:cover; }
+
+  /* Education collage */
+  .pj-edu-media { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+  .pj-edu-main { position: relative; border-radius: 18px; overflow: hidden; }
+  .pj-edu-main img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; }
+  .pj-edu-caption { position: absolute; left: 16px; right: 16px; bottom: 16px; background: #fff; border-radius: 12px; padding: 12px 14px; box-shadow: 0 10px 24px -12px rgba(35,41,31,.3); }
+  .pj-edu-caption b { display:block; font-size:.82rem; font-family:'Fraunces',serif; }
+  .pj-edu-caption span { font-size:.72rem; color: var(--ink-soft); }
+  .pj-edu-side { display: flex; flex-direction: column; gap: 16px; }
+  .pj-edu-tile { position: relative; border-radius: 18px; overflow: hidden; flex: 1; }
+  .pj-edu-tile img { width: 100%; height: 100%; object-fit: cover; min-height: 140px; }
+  .pj-edu-tile .tag { position: absolute; right: 10px; bottom: 10px; left:10px; background: #fff; border-radius: 10px; padding: 8px 10px; box-shadow: 0 8px 18px -10px rgba(35,41,31,.3); }
+  .pj-edu-tile .tag b { display:block; font-size:.74rem; font-family:'Fraunces',serif; }
+  .pj-edu-tile .tag span { font-size:.66rem; color: var(--ink-soft); }
+
+  /* Trust strip */
+  .pj-trust { text-align: center; }
+  .pj-trust h2 { font-size: clamp(1.6rem, 2.6vw, 2rem); margin-bottom: 46px; }
+  .pj-trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .pj-trust-icon { width: 58px; height: 58px; border-radius: 999px; background: var(--blush); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+  .pj-trust-icon svg { width: 24px; height: 24px; stroke: var(--marigold); }
+  .pj-trust-grid b { display: block; font-size: 0.9rem; margin-bottom: 4px; }
+  .pj-trust-grid p { font-size: 0.8rem; color: var(--ink-soft); }
+
+  /* Final CTA */
+  .pj-final { background: var(--blush); border-radius: 26px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; }
+  .pj-final-photo { height: 100%; min-height: 300px; }
+  .pj-final-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pj-final-text { padding: 50px 56px; }
+  .pj-final-text h2 { font-size: clamp(1.7rem, 2.8vw, 2.3rem); }
+  .pj-final-text p { color: var(--ink-soft); margin-top: 10px; font-style: italic; font-family: 'Fraunces', serif; }
 
   @media (max-width: 900px) {
-    .bl-hero-grid, .bl-split-grid { grid-template-columns: 1fr; }
-    .bl-hero-art { margin-top: 30px; }
-    .bl-modules-grid, .bl-quicknav-grid { grid-template-columns: 1fr 1fr; }
-    .bl-band { padding: 52px 0; }
-    .bl-cta { padding: 44px 26px; }
-  }
-  @media (max-width: 560px) {
-    .bl-modules-grid, .bl-quicknav-grid { grid-template-columns: 1fr; }
-    .bl-hero-card { width: 100%; }
+    .pj-hero-grid { grid-template-columns: 1fr; }
+    .pj-module, .pj-module.reverse { grid-template-columns: 1fr; gap: 34px; }
+    .pj-module.reverse .pj-module-text, .pj-module.reverse .pj-module-media { order: initial; }
+    .pj-module-media { min-height: 320px; margin-top: 20px; }
+    .pj-edu-media { grid-template-columns: 1fr; }
+    .pj-trust-grid { grid-template-columns: 1fr 1fr; }
+    .pj-final { grid-template-columns: 1fr; }
+    .pj-final-photo { min-height: 220px; }
+    .pj-final-text { padding: 34px 26px; text-align: center; }
+    .pj-band { padding: 52px 0; }
   }
 </style>
 </head>
@@ -114,155 +126,180 @@
 
 <div data-include="/partials/header.html"></div>
 
-<div class="bl">
-
-  <!-- HERO -->
-  <section class="bl-hero">
-    <div class="bl-wrap">
-      <div class="bl-hero-grid">
-        <div>
-          <h1>The registry that grows with your family.</h1>
-          <p>Add anything from any store, share one link, and let a curated marketplace and expert guidance carry you through every stage.</p>
-          <div class="bl-hero-actions">
-            <a href="/create-registry.html" class="bl-btn bl-btn-coral">Create baby registry</a>
-            <a href="/find-registry.html" class="bl-btn bl-btn-outline">Find the registry</a>
-          </div>
+<!-- HERO -->
+<section class="pj-band pj-hero">
+  <div class="pj-wrap pj-hero-grid">
+    <div>
+      <h1>Everything you need.<br><span class="accent">Together.</span></h1>
+      <p class="lede">The all-in-one parenting platform for every step — from bump to beyond.</p>
+      <div class="pj-hero-feats">
+        <div class="pj-feat">
+          <div class="pj-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+          <b>Curated with love</b><span>Handpicked products for your baby</span>
         </div>
-        <div class="bl-hero-art">
-          <div class="bl-hero-card">
-            <div class="bl-mini-row"><span style="display:flex;align-items:center;gap:10px;"><span class="bl-dot">🍼</span> Stroller</span><b>Reserved</b></div>
-            <div class="bl-mini-row"><span style="display:flex;align-items:center;gap:10px;"><span class="bl-dot">🛏️</span> Crib</span><b>Open</b></div>
-            <div class="bl-mini-row"><span style="display:flex;align-items:center;gap:10px;"><span class="bl-dot">🧸</span> Car seat</span><b>Open</b></div>
-          </div>
+        <div class="pj-feat">
+          <div class="pj-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/><path d="M9.5 12l2 2 3.5-3.5"/></svg></div>
+          <b>Trusted by experts</b><span>Doctor-backed information</span>
+        </div>
+        <div class="pj-feat">
+          <div class="pj-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 9V7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2"/><path d="M12 6v15M8 6a2.5 2.5 0 0 1 0-5c1.8 0 4 2.5 4 5"/><path d="M16 6a2.5 2.5 0 0 0 0-5c-1.8 0-4 2.5-4 5"/></svg></div>
+          <b>Gifting made easy</b><span>Share your registry, receive with joy</span>
         </div>
       </div>
     </div>
-  </section>
+    <div class="pj-hero-media">
+      <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=1200&auto=format&fit=crop" alt="Expecting mother at home">
+    </div>
+  </div>
+</section>
 
-  <!-- 3 MODULES -->
-  <section class="bl-band bl-modules">
-    <div class="bl-wrap">
-      <div class="bl-modules-head">
-        <h2 style="font-size:2rem;">Everything for baby's first years</h2>
-        <p style="margin-top:10px;">Three things, done properly, instead of a dozen things done halfway.</p>
+<!-- INTRO -->
+<section class="pj-band" style="padding-bottom:0;">
+  <div class="pj-wrap">
+    <div class="pj-intro">
+      <span class="eyebrow" style="justify-content:center;display:flex;">Your parenting journey, simplified</span>
+      <h2>Three connected modules. One seamless experience.</h2>
+    </div>
+
+    <!-- REGISTRY -->
+    <div class="pj-module">
+      <div class="pj-module-text">
+        <div class="pj-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 9V7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2"/><path d="M12 6v15M8 6a2.5 2.5 0 0 1 0-5c1.8 0 4 2.5 4 5"/><path d="M16 6a2.5 2.5 0 0 0 0-5c-1.8 0-4 2.5-4 5"/></svg></div>
+        <h3>Registry</h3>
+        <p class="desc">Create, share and manage your baby registry with ease.</p>
+        <ul class="pj-check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Add from any store</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Share with loved ones</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Track and manage gifts</li>
+        </ul>
+        <a href="/create-registry.html" class="btn btn-primary" style="margin-top:22px;">Explore Registry →</a>
       </div>
-      <div class="bl-modules-grid">
+      <div class="pj-module-media">
+        <div class="pj-phone">
+          <div class="ph-head">My Baby Registry</div>
+          <div class="ph-sub">Due date: 12 Nov · 73% complete</div>
+          <div class="ph-bar"><span></span></div>
+          <div class="ph-row"><span>Stroller</span><b>2 of 3</b></div>
+          <div class="ph-row"><span>Baby Carrier</span><b>1 of 1</b></div>
+          <div class="ph-row"><span>Crib</span><b>0 of 1</b></div>
+          <div class="ph-row"><span>Diaper Bag</span><b>1 of 1</b></div>
+        </div>
+        <div class="pj-module-photo"><img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?q=80&w=800&auto=format&fit=crop" alt="Sleeping newborn"></div>
+        <div class="pj-checklist-card">
+          <h5>Baby Registry Checklist</h5>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Travel Essentials</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Nursery</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Feeding</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Clothing</div>
+        </div>
+      </div>
+    </div>
 
-        <div class="bl-mcard">
-          <div class="bl-mcard-media">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
-          </div>
-          <div class="bl-mcard-body">
-            <h3>Registry</h3>
-            <p>Build one wishlist, add anything from any store, and share a single link with everyone who wants to gift.</p>
-            <div class="bl-mcard-links">
-              <a href="/create-registry.html">Create baby registry →</a>
-              <a href="/find-registry.html">Find the registry →</a>
-              <a href="/registry.html">How it works →</a>
+    <!-- MARKETPLACE -->
+    <div class="pj-module reverse">
+      <div class="pj-module-text">
+        <div class="pj-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>Marketplace</h3>
+        <p class="desc">Compare across top retailers and find what's best for your little one.</p>
+        <ul class="pj-check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Compare prices &amp; features</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Shop from trusted retailers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Exclusive deals &amp; offers</li>
+        </ul>
+        <a href="/marketplace.html" class="btn btn-primary" style="margin-top:22px;">Explore Marketplace →</a>
+      </div>
+      <div class="pj-module-media">
+        <div class="pj-shop-photo">
+          <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=900&auto=format&fit=crop" alt="Parent comparing prices on phone">
+          <div class="pj-deal-card">
+            <h5>Compare &amp; Shop</h5>
+            <div class="pj-deal-row">
+              <div class="pj-deal-item"><div class="retailer">Amazon.in</div><div class="price">₹18,999</div><span class="deal-btn">View Deal</span></div>
+              <div class="pj-deal-item"><div class="retailer">FirstCry</div><div class="price">₹17,499</div><span class="deal-btn">View Deal</span></div>
+              <div class="pj-deal-item"><div class="retailer">Flipkart</div><div class="price">₹18,500</div><span class="deal-btn">View Deal</span></div>
             </div>
           </div>
         </div>
-
-        <div class="bl-mcard">
-          <div class="bl-mcard-media">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M3 4h2l2.4 12h11.2L21 8H6.2"/></svg>
-          </div>
-          <div class="bl-mcard-body">
-            <h3>Marketplace</h3>
-            <p>Compare prices across Amazon, Flipkart and FirstCry for every product on your list, then buy directly from whoever you like.</p>
-            <div class="bl-mcard-links">
-              <a href="/marketplace.html">Compare and Shop →</a>
-              <a href="/marketplace.html#retailers">Retailers →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="bl-mcard">
-          <div class="bl-mcard-media">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0 0 4h14"/></svg>
-          </div>
-          <div class="bl-mcard-body">
-            <h3>Education</h3>
-            <p>Hospitals, gynaecologists, local vendors and hospital-bag checklists — practical guidance for every stage, in one hub.</p>
-            <div class="bl-mcard-links">
-              <a href="/education.html">Explore Education →</a>
-            </div>
-          </div>
-        </div>
-
+        <div class="pj-toddler-photo"><img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=800&auto=format&fit=crop" alt="Toddler playing with blocks"></div>
       </div>
     </div>
-  </section>
 
-  <!-- SPLIT FEATURE -->
-  <section class="bl-band bl-split">
-    <div class="bl-wrap">
-      <div class="bl-split-grid">
-        <div>
-          <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--bl-coral);">Add anything, from anywhere</span>
-          <h2 style="margin-top:10px;">One list. No more tab-switching.</h2>
-          <p>Paste a link from any store, or add an item by hand. Your registry stays in one place, however scattered your shopping is.</p>
-          <a href="/create-registry.html" class="bl-btn bl-btn-coral" style="margin-top:24px;">Get started</a>
+    <!-- EDUCATION -->
+    <div class="pj-module">
+      <div class="pj-module-text">
+        <div class="pj-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0 0 4h14"/></svg></div>
+        <h3>Education</h3>
+        <p class="desc">Expert-backed guidance for every stage of your parenting journey.</p>
+        <ul class="pj-check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Pregnancy week by week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Baby care &amp; development</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Articles, videos &amp; expert advice</li>
+        </ul>
+        <a href="/education.html" class="btn btn-primary" style="margin-top:22px;">Explore Education →</a>
+      </div>
+      <div class="pj-edu-media">
+        <div class="pj-edu-main">
+          <img src="https://images.unsplash.com/photo-1518843025966-8b33c46c1cf6?q=80&w=900&auto=format&fit=crop" alt="Pregnant woman">
+          <div class="pj-edu-caption"><b>Pregnancy</b><span>Week by week guidance for a healthy journey</span></div>
         </div>
-        <div class="bl-split-art">
-          <div class="bl-checklist-row"><span class="bl-check">✓</span> Convertible car seat — added from FirstCry</div>
-          <div class="bl-checklist-row"><span class="bl-check">✓</span> Muslin swaddle set — added from Amazon</div>
-          <div class="bl-checklist-row"><span class="bl-check">✓</span> Baby monitor — added from Flipkart</div>
-          <div class="bl-checklist-row"><span class="bl-check">✓</span> Nursery glider — added by hand</div>
+        <div class="pj-edu-side">
+          <div class="pj-edu-tile">
+            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=700&auto=format&fit=crop" alt="Newborn baby">
+            <div class="tag"><b>Baby Care</b><span>Care, nurture &amp; support for your baby</span></div>
+          </div>
+          <div class="pj-edu-tile">
+            <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=700&auto=format&fit=crop" alt="Father holding baby">
+            <div class="tag"><b>Parenting</b><span>Practical tips for confident parenting</span></div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- QUICK NAV -->
-  <section class="bl-band bl-quicknav">
-    <div class="bl-wrap">
-      <div class="bl-quicknav-grid">
-        <a href="/create-registry.html" style="text-decoration:none;">
-          <div class="bl-qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
-          <h4>Create a Registry</h4>
-          <p>A couple of steps to start adding gifts.</p>
-        </a>
-        <a href="/find-registry.html" style="text-decoration:none;">
-          <div class="bl-qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-          <h4>Find a Registry</h4>
-          <p>Give the perfect gift to a growing family.</p>
-        </a>
-        <a href="/marketplace.html" style="text-decoration:none;">
-          <div class="bl-qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M3 4h2l2.4 12h11.2L21 8H6.2"/></svg></div>
-          <h4>Start Shopping</h4>
-          <p>Compare prices before anyone buys.</p>
-        </a>
-        <a href="/education.html" style="text-decoration:none;">
-          <div class="bl-qn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0 0 4h14"/></svg></div>
-          <h4>Read Guides</h4>
-          <p>Practical guidance for every stage.</p>
-        </a>
+<!-- TRUST STRIP -->
+<section class="pj-band pj-trust" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="pj-wrap">
+    <h2>Loved by parents. Trusted by experts.</h2>
+    <div class="pj-trust-grid">
+      <div>
+        <div class="pj-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M14.5 14.8c2.6.3 4.5 2.3 4.5 5.2"/></svg></div>
+        <b>Built for Indian parents</b><p>Understanding your needs at every step</p>
+      </div>
+      <div>
+        <div class="pj-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/></svg></div>
+        <b>Safe &amp; reliable</b><p>Curated, secure and privacy-first</p>
+      </div>
+      <div>
+        <div class="pj-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M6 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M9 8l2 2 4-4"/></svg></div>
+        <b>Expert backed</b><p>Doctor-reviewed content you can trust</p>
+      </div>
+      <div>
+        <div class="pj-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <b>A community that cares</b><p>Because parenting is better together</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FINAL CTA -->
-  <section class="bl-band" style="background:#fff;">
-    <div class="bl-wrap">
-      <div class="bl-cta">
-        <h2>Welcome to The Perfect Parenting.</h2>
-        <p>Join families who've made one registry, one marketplace, and one hub for guidance their whole toolkit.</p>
-        <div class="bl-cta-actions">
-          <a href="/create-registry.html" class="bl-btn bl-btn-coral">Start Your Registry</a>
-          <a href="/find-registry.html" class="bl-btn bl-btn-outline">Find a Registry</a>
+<!-- FINAL CTA -->
+<section class="pj-band">
+  <div class="pj-wrap">
+    <div class="pj-final">
+      <div class="pj-final-photo">
+        <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=900&auto=format&fit=crop" alt="Family with newborn">
+      </div>
+      <div class="pj-final-text">
+        <h3 style="font-family:'Fraunces',serif;">Here for every step.<br>Here for every family.</h3>
+        <p>Nurture. Guide. Grow. Together.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/create-registry.html" class="btn btn-primary">Create baby registry</a>
+          <a href="/about-us.html" class="btn btn-outline">About Us</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="bl-band" style="padding-top:0;text-align:center;">
-    <div class="bl-wrap">
-      <p style="font-size:.92rem;">Curious why we built it this way? <a href="/about-us.html" style="color:var(--bl-coral);font-weight:600;text-decoration:none;">About Us →</a></p>
-    </div>
-  </section>
-
-</div>
+  </div>
+</section>
 
 <div data-include="/partials/footer.html"></div>
 <script src="/assets/include.js"></script>
