@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
 
 :root {
-  --cream: #faf6ee;
-  --ink: #23241f;
-  --ink-soft: #57574d;
-  --sage: #5c7a5e;
-  --sage-dark: #3f5941;
-  --marigold: #e7a33e;
-  --marigold-dark: #c9832a;
-  --teal: #2b4c4a;
-  --blush: #f1dccf;
-  --line: #e3dccb;
-  --white: #fffdf9;
+  --cream: #f5f9fd;
+  --ink: #1e2a3a;
+  --ink-soft: #5b6b7d;
+  --sage: #2f6fbf;
+  --sage-dark: #1f4e8c;
+  --marigold: #e8638f;
+  --marigold-dark: #c94571;
+  --teal: #16305a;
+  --blush: #fbe7ef;
+  --line: #dce6f0;
+  --white: #ffffff;
   --radius: 14px;
   --shadow: 0 10px 30px -14px rgba(35, 36, 31, 0.25);
 }
@@ -103,12 +103,19 @@ nav.primary-nav { display: flex; gap: 4px; flex: 1; }
 .nav-top:hover { background: var(--blush); }
 .nav-top span { font-size: 0.6rem; opacity: 0.6; }
 .mega {
-  position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%);
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
-  box-shadow: var(--shadow); padding: 20px; display: none; gap: 28px;
+  box-shadow: var(--shadow); padding: 16px 20px 20px; margin-top: 8px; display: none; gap: 28px;
   min-width: 320px; z-index: 50;
 }
-.nav-item:hover .mega { display: flex; }
+/* An invisible bridge fills the visual gap above the dropdown so the pointer never
+   leaves .nav-item while moving from the button down into the dropdown. */
+.nav-item::after {
+  content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 8px;
+}
+/* Dropdown stays open while hovering the button OR the dropdown itself, and only
+   closes once the pointer leaves both — no gap between them to lose hover over. */
+.nav-item:hover .mega, .nav-item:focus-within .mega { display: flex; }
 .mega-col h4 {
   font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--sage-dark); margin: 0 0 10px;
@@ -134,18 +141,18 @@ nav.primary-nav { display: flex; gap: 4px; flex: 1; }
 }
 
 /* ---------- Footer ---------- */
-footer.site-footer { background: var(--teal); color: #d8e3df; padding: 56px 0 24px; margin-top: 80px; }
+footer.site-footer { background: var(--teal); color: #d6e2f2; padding: 56px 0 24px; margin-top: 80px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; }
 .footer-grid h5 {
   font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em;
-  text-transform: uppercase; color: #9fb6ae; margin-bottom: 14px;
+  text-transform: uppercase; color: #9fb4d6; margin-bottom: 14px;
 }
-.footer-grid a { display: block; padding: 5px 0; font-size: 0.88rem; color: #d8e3df; }
+.footer-grid a { display: block; padding: 5px 0; font-size: 0.88rem; color: #d6e2f2; }
 .footer-grid a:hover { color: var(--marigold); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.14); margin-top: 40px; padding-top: 20px;
   display: flex; justify-content: space-between; align-items: center;
-  font-size: 0.82rem; color: #b9c9c3; flex-wrap: wrap; gap: 12px;
+  font-size: 0.82rem; color: #a9bcd4; flex-wrap: wrap; gap: 12px;
 }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
 
