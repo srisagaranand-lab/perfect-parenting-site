@@ -48,14 +48,8 @@
 
   /* Registry phone mockup collage */
   .pj-module-media { position: relative; min-height: 380px; }
-  .pj-phone { position: absolute; left: 0; top: 0; width: 220px; background: #fff; border: 8px solid var(--ink); border-radius: 30px; box-shadow: 0 24px 50px -18px rgba(35,41,31,.3); padding: 14px; z-index: 2; }
-  .pj-phone .ph-head { font-family:'Fraunces',serif; font-weight:700; font-size:.85rem; margin-bottom:4px; }
-  .pj-phone .ph-sub { font-size: .68rem; color: var(--ink-soft); margin-bottom:8px; }
-  .pj-phone .ph-bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; margin-bottom: 14px; }
-  .pj-phone .ph-bar span { display:block; height:100%; width:73%; background: var(--marigold); }
-  .pj-phone .ph-row { display:flex; justify-content:space-between; align-items:center; font-size:.68rem; padding:7px 0; border-bottom:1px solid var(--line); }
-  .pj-phone .ph-row:last-child { border-bottom:none; }
-  .pj-phone .ph-row b { font-size:.72rem; }
+  .pj-phone-img { position: absolute; left: 0; top: 0; width: 210px; border-radius: 20px; overflow: hidden; box-shadow: 0 24px 50px -18px rgba(35,41,31,.3); z-index: 2; }
+  .pj-phone-img img { width: 100%; display: block; }
   .pj-module-photo { position: absolute; right: 30px; top: 20px; width: 190px; height: 190px; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 1; }
   .pj-module-photo img { width:100%; height:100%; object-fit:cover; }
   .pj-checklist-card { position: absolute; right: 0; bottom: 0; width: 190px; background: #fff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 18px 36px -16px rgba(35,41,31,.28); z-index: 3; transform: rotate(3deg); }
@@ -65,15 +59,7 @@
 
   /* Marketplace collage */
   .pj-shop-photo { border-radius: 20px; overflow: hidden; position: relative; }
-  .pj-shop-photo img { width: 100%; aspect-ratio: 4/3.6; object-fit: cover; display: block; }
-  .pj-deal-card { position: absolute; left: 20px; right: 20px; bottom: -30px; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 18px 36px -16px rgba(35,41,31,.3); }
-  .pj-deal-card h5 { font-family:'Fraunces',serif; font-size:.82rem; text-align:center; margin-bottom:10px; }
-  .pj-deal-row { display: flex; gap: 10px; }
-  .pj-deal-item { flex: 1; text-align: center; border-right: 1px solid var(--line); padding-right: 8px; }
-  .pj-deal-item:last-child { border-right: none; padding-right: 0; }
-  .pj-deal-item .retailer { font-size: .68rem; font-weight: 700; margin-bottom: 4px; }
-  .pj-deal-item .price { font-size: .8rem; font-weight: 700; color: var(--ink); }
-  .pj-deal-item .deal-btn { display:block; margin-top:6px; font-size:.62rem; font-weight:600; color: var(--marigold-dark); }
+  .pj-shop-photo img { width: 100%; display: block; border-radius: 20px; }
   .pj-toddler-photo { position: absolute; right: -20px; bottom: -40px; width: 160px; height: 160px; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 36px -16px rgba(35,41,31,.3); }
   .pj-toddler-photo img { width:100%; height:100%; object-fit:cover; }
 
@@ -104,7 +90,8 @@
   .pj-final { background: var(--blush); border-radius: 26px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; }
   .pj-final-photo { height: 100%; min-height: 300px; }
   .pj-final-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pj-final-text { padding: 50px 56px; }
+  .pj-final-text { padding: 50px 56px; position: relative; }
+  .pj-final-leaves { position: absolute; top: -16px; right: 24px; width: 74px; opacity: 0.9; }
   .pj-final-text h2 { font-size: clamp(1.7rem, 2.8vw, 2.3rem); }
   .pj-final-text p { color: var(--ink-soft); margin-top: 10px; font-style: italic; font-family: 'Fraunces', serif; }
 
@@ -148,7 +135,7 @@
       </div>
     </div>
     <div class="pj-hero-media">
-      <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=1200&auto=format&fit=crop" alt="Expecting mother at home">
+      <img src="/assets/images/01_Hero_Pregnant_Mother_clean.jpg" alt="Expecting mother at home">
     </div>
   </div>
 </section>
@@ -175,16 +162,8 @@
         <a href="/create-registry.html" class="btn btn-primary" style="margin-top:22px;">Explore Registry →</a>
       </div>
       <div class="pj-module-media">
-        <div class="pj-phone">
-          <div class="ph-head">My Baby Registry</div>
-          <div class="ph-sub">Due date: 12 Nov · 73% complete</div>
-          <div class="ph-bar"><span></span></div>
-          <div class="ph-row"><span>Stroller</span><b>2 of 3</b></div>
-          <div class="ph-row"><span>Baby Carrier</span><b>1 of 1</b></div>
-          <div class="ph-row"><span>Crib</span><b>0 of 1</b></div>
-          <div class="ph-row"><span>Diaper Bag</span><b>1 of 1</b></div>
-        </div>
-        <div class="pj-module-photo"><img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?q=80&w=800&auto=format&fit=crop" alt="Sleeping newborn"></div>
+        <div class="pj-phone-img"><img src="/assets/images/02_Registry_Phone.jpg" alt="My Baby Registry app"></div>
+        <div class="pj-module-photo"><img src="/assets/images/03_Registry_Baby.jpg" alt="Sleeping newborn"></div>
         <div class="pj-checklist-card">
           <h5>Baby Registry Checklist</h5>
           <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Travel Essentials</div>
@@ -210,17 +189,9 @@
       </div>
       <div class="pj-module-media">
         <div class="pj-shop-photo">
-          <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=900&auto=format&fit=crop" alt="Parent comparing prices on phone">
-          <div class="pj-deal-card">
-            <h5>Compare &amp; Shop</h5>
-            <div class="pj-deal-row">
-              <div class="pj-deal-item"><div class="retailer">Amazon.in</div><div class="price">₹18,999</div><span class="deal-btn">View Deal</span></div>
-              <div class="pj-deal-item"><div class="retailer">FirstCry</div><div class="price">₹17,499</div><span class="deal-btn">View Deal</span></div>
-              <div class="pj-deal-item"><div class="retailer">Flipkart</div><div class="price">₹18,500</div><span class="deal-btn">View Deal</span></div>
-            </div>
-          </div>
+          <img src="/assets/images/04_Marketplace_Mother_Shopping_clean.jpg" alt="Parent comparing prices on phone, with Compare and Shop retailer pricing">
         </div>
-        <div class="pj-toddler-photo"><img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=800&auto=format&fit=crop" alt="Toddler playing with blocks"></div>
+        <div class="pj-toddler-photo"><img src="/assets/images/05_Marketplace_Toddler.jpg" alt="Toddler playing"></div>
       </div>
     </div>
 
@@ -239,16 +210,16 @@
       </div>
       <div class="pj-edu-media">
         <div class="pj-edu-main">
-          <img src="https://images.unsplash.com/photo-1518843025966-8b33c46c1cf6?q=80&w=900&auto=format&fit=crop" alt="Pregnant woman">
+          <img src="/assets/images/06_Education_Pregnant_Mother_clean.jpg" alt="Pregnant woman">
           <div class="pj-edu-caption"><b>Pregnancy</b><span>Week by week guidance for a healthy journey</span></div>
         </div>
         <div class="pj-edu-side">
           <div class="pj-edu-tile">
-            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=700&auto=format&fit=crop" alt="Newborn baby">
+            <img src="/assets/images/07_Education_Baby_clean.jpg" alt="Newborn baby">
             <div class="tag"><b>Baby Care</b><span>Care, nurture &amp; support for your baby</span></div>
           </div>
           <div class="pj-edu-tile">
-            <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=700&auto=format&fit=crop" alt="Father holding baby">
+            <img src="/assets/images/08_Education_Dad_Baby_clean.jpg" alt="Father holding baby">
             <div class="tag"><b>Parenting</b><span>Practical tips for confident parenting</span></div>
           </div>
         </div>
@@ -287,9 +258,10 @@
   <div class="pj-wrap">
     <div class="pj-final">
       <div class="pj-final-photo">
-        <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=900&auto=format&fit=crop" alt="Family with newborn">
+        <img src="/assets/images/10_Final_Family_clean.jpg" alt="Family with newborn">
       </div>
       <div class="pj-final-text">
+        <img src="/assets/images/09_Final_Leaves.jpg" alt="" class="pj-final-leaves">
         <h3 style="font-family:'Fraunces',serif;">Here for every step.<br>Here for every family.</h3>
         <p>Nurture. Guide. Grow. Together.</p>
         <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
