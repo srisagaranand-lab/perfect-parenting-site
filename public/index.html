@@ -38,12 +38,6 @@
   .pj-hero-media { position: relative; border-radius: 40px 16px 40px 16px; overflow: hidden; aspect-ratio: 4/3.3; box-shadow: 0 30px 60px -24px rgba(35,41,31,.32); z-index: 1; }
   .pj-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; transition: transform .5s cubic-bezier(.22,1,.36,1); }
   .pj-hero-visual:hover .pj-hero-media img { transform: scale(1.03); }
-  .pj-hero-insight { position: absolute; left: -20px; bottom: 6px; z-index: 2; background: #fff; border-radius: 16px; padding: 16px 20px; box-shadow: 0 20px 44px -16px rgba(35,41,31,.32); display: flex; align-items: center; gap: 12px; max-width: 240px; transition: transform .2s ease, box-shadow .2s ease; }
-  .pj-hero-insight:hover { transform: translateY(-3px); box-shadow: 0 26px 52px -16px rgba(35,41,31,.38); }
-  .pj-hero-insight .ins-icon { width: 38px; height: 38px; border-radius: 999px; background: var(--blush); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
-  .pj-hero-insight .ins-icon svg { width: 18px; height: 18px; stroke: var(--marigold); }
-  .pj-hero-insight .ins-num { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.15rem; line-height: 1; color: var(--ink); }
-  .pj-hero-insight .ins-label { font-size: 0.72rem; color: var(--ink-soft); margin-top: 3px; }
 
   /* Section intro */
   .pj-intro { text-align: center; max-width: 620px; margin: 0 auto 64px; }
@@ -61,24 +55,13 @@
   .pj-module-text p.desc { color: var(--ink-soft); margin-top: 10px; max-width: 400px; }
   .pj-check-list { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .pj-check-list li { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--ink); }
-  .pj-check-list svg { width: 18px; height: 18px; stroke: var(--marigold); flex: 0 0 auto; }
+  .pj-check-list svg { width: 19px; height: 19px; stroke: var(--marigold); flex: 0 0 auto; }
 
-  /* Registry / Potli section: narrow text sidebar + wide image cascade */
+  /* Registry section: text sidebar + single collage image */
   .pj-module-registry { grid-template-columns: 300px 1fr; gap: 40px; }
-  .pj-potli-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--blush); color: var(--marigold-dark); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom: 14px; }
-  .pj-registry-row { display: flex; align-items: center; position: relative; padding: 20px 0; }
-  .pj-confetti { position: absolute; inset: -10px; z-index: 0; pointer-events: none; }
-  .pj-confetti span { position: absolute; border-radius: 2px; opacity: 0.85; }
-  .pj-reg-phone { position: relative; width: 36%; z-index: 3; margin-right: -4%; filter: drop-shadow(0 22px 40px rgba(35,41,31,.28)); border-radius: 26px; overflow: hidden; transition: transform .3s ease; }
-  .pj-reg-phone:hover { transform: translateY(-4px); }
-  .pj-reg-phone img { width: 100%; display: block; }
-  .pj-reg-baby { position: relative; width: 27%; z-index: 2; margin-right: -5%; margin-top: 10%; border-radius: 18px; overflow: hidden; box-shadow: 0 22px 40px -14px rgba(35,41,31,.3); }
-  .pj-reg-baby img { width: 100%; display: block; aspect-ratio: 3/3.6; object-fit: cover; }
-  .pj-reg-checklist { position: relative; width: 30%; z-index: 4; margin-top: -6%; border-radius: 14px; overflow: hidden; box-shadow: 0 22px 40px -14px rgba(35,41,31,.3); transform: rotate(2deg); transition: transform .3s ease; }
-  .pj-reg-checklist:hover { transform: rotate(0deg) translateY(-3px); }
-  .pj-reg-checklist img { width: 100%; display: block; }
-  .pj-added-badge { position: absolute; z-index: 5; right: 4%; bottom: -14px; background: var(--sage); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 7px 13px; border-radius: 999px; box-shadow: 0 12px 26px -10px rgba(35,41,31,.4); display: flex; align-items: center; gap: 5px; }
-  .pj-added-badge svg { width: 12px; height: 12px; stroke: #fff; }
+  .pj-registry-visual { border-radius: 20px; overflow: hidden; box-shadow: 0 26px 54px -20px rgba(35,41,31,.28); transition: transform .3s ease; }
+  .pj-registry-visual:hover { transform: translateY(-4px); }
+  .pj-registry-visual img { width: 100%; display: block; }
 
   /* Marketplace photo — layered composition */
   .pj-shop-wrap { position: relative; }
@@ -119,11 +102,6 @@
     .pj-hero-grid { grid-template-columns: 1fr; }
     .pj-module, .pj-module.reverse, .pj-module-registry { grid-template-columns: 1fr; gap: 34px; }
     .pj-module.reverse .pj-module-text, .pj-module.reverse .pj-module-media { order: initial; }
-    .pj-registry-row { margin-top: 34px; }
-    .pj-reg-phone { width: 40%; }
-    .pj-reg-baby { width: 32%; }
-    .pj-reg-checklist { width: 34%; }
-    .pj-added-badge { right: 6%; bottom: -12px; font-size: 0.64rem; padding: 6px 11px; }
     .pj-edu-media { grid-template-columns: 1fr; }
     .pj-trust-grid { grid-template-columns: 1fr 1fr; }
     .pj-final { grid-template-columns: 1fr; }
@@ -136,7 +114,6 @@
     .pj-hero-visual { padding: 0; margin-top: 8px; }
     .pj-hero-visual .pj-blob { display: none; }
     .pj-hero-media { border-radius: 26px; }
-    .pj-hero-insight { position: static; margin-top: -28px; margin-left: 20px; max-width: none; width: calc(100% - 40px); }
 
     /* Marketplace: tag moves inside the flow above the image instead of overlapping its edge */
     .pj-shop-wrap .pj-blob { display: none; }
@@ -176,13 +153,6 @@
       <div class="pj-hero-media">
         <img src="/assets/images/01_Hero_Pregnant_Mother_hd.jpg" alt="Expecting mother at home">
       </div>
-      <div class="pj-hero-insight">
-        <div class="ins-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M9 20v-6h6v6"/></svg></div>
-        <div>
-          <div class="ins-num">3 stores</div>
-          <div class="ins-label">compared automatically, every time</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -202,32 +172,18 @@
     <!-- REGISTRY -->
     <div class="pj-module pj-module-registry">
       <div class="pj-module-text">
-        <span class="pj-potli-tag">Your Potli</span>
         <div class="pj-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 9V7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2"/><path d="M12 6v15M8 6a2.5 2.5 0 0 1 0-5c1.8 0 4 2.5 4 5"/><path d="M16 6a2.5 2.5 0 0 0 0-5c-1.8 0-4 2.5-4 5"/></svg></div>
         <h3>Registry</h3>
-        <p class="desc">Everything your baby needs, saved in one Potli and shared with everyone who loves them.</p>
+        <p class="desc">Create, share and manage your baby registry with ease.</p>
         <ul class="pj-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Add from any store</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Share with loved ones</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Track and manage gifts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Add from any store</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Share with loved ones</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Track and manage gifts</li>
         </ul>
         <a href="/create-registry.html" class="btn btn-primary" style="margin-top:22px;">Explore Registry →</a>
       </div>
-      <div class="pj-registry-row">
-        <div class="pj-confetti">
-          <span style="left:2%;top:12%;width:14px;height:14px;background:var(--marigold);transform:rotate(18deg);"></span>
-          <span style="left:8%;top:55%;width:10px;height:10px;background:var(--sage);transform:rotate(-12deg);"></span>
-          <span style="left:1%;top:80%;width:12px;height:12px;background:#e8d38a;transform:rotate(30deg);"></span>
-          <span style="right:32%;top:5%;width:10px;height:10px;background:var(--marigold);transform:rotate(-20deg);"></span>
-          <span style="right:28%;top:88%;width:12px;height:12px;background:var(--sage);transform:rotate(15deg);"></span>
-          <span style="right:2%;top:20%;width:12px;height:12px;background:#e8d38a;transform:rotate(-10deg);"></span>
-        </div>
-        <div class="pj-reg-phone"><img src="/assets/images/02_Registry_Phone_hd.jpg" alt="My Baby Registry app"></div>
-        <div class="pj-reg-baby"><img src="/assets/images/03_Registry_Baby_hd.jpg" alt="Sleeping newborn"></div>
-        <div class="pj-reg-checklist">
-          <img src="/assets/images/04_Registry_Checklist_hd.jpg" alt="Baby Registry Checklist card">
-          <span class="pj-added-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Added to Potli</span>
-        </div>
+      <div class="pj-registry-visual">
+        <img src="/assets/images/12_Registry_Collage_hd.jpg" alt="My Baby Registry app, sleeping newborn, and Baby Registry Checklist card">
       </div>
     </div>
 
@@ -239,9 +195,9 @@
         <h3>Marketplace</h3>
         <p class="desc">Compare across top retailers and find what's best for your little one.</p>
         <ul class="pj-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Compare prices &amp; features</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Shop from trusted retailers</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Exclusive deals &amp; offers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Compare prices &amp; features</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Shop from trusted retailers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Exclusive deals &amp; offers</li>
         </ul>
         <a href="/marketplace.html" class="btn btn-primary" style="margin-top:22px;">Explore Marketplace →</a>
       </div>
@@ -263,9 +219,9 @@
         <h3>Education</h3>
         <p class="desc">Expert-backed guidance for every stage of your parenting journey.</p>
         <ul class="pj-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Pregnancy week by week</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Baby care &amp; development</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Articles, videos &amp; expert advice</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Pregnancy week by week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Baby care &amp; development</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.6 2.6L16 9.3"/></svg> Articles, videos &amp; expert advice</li>
         </ul>
         <a href="/education.html" class="btn btn-primary" style="margin-top:22px;">Explore Education →</a>
       </div>
