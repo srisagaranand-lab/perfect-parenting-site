@@ -11,8 +11,8 @@
   .pj-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
   .pj-band { padding: 78px 0; background: #ffffff; }
   .pj-heart-divider { display:flex; align-items:center; justify-content:center; gap:14px; margin: 16px 0 0; }
-  .pj-heart-divider .line { width: 90px; height: 1px; background: var(--line); }
-  .pj-heart-divider svg { width: 20px; height: 20px; fill: var(--marigold); }
+  .pj-heart-divider .line { width: 90px; height: 1px; background: var(--line); flex: 0 0 auto; }
+  .pj-heart-divider svg { width: 26px; height: 26px; fill: var(--marigold); overflow: visible; flex: 0 0 auto; display: block; }
 
   /* Organic decorative shapes — subtle, editorial, not illustration-heavy */
   .pj-blob { position: absolute; border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%; z-index: 0; pointer-events: none; }
@@ -24,7 +24,7 @@
   .pj-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 50px; align-items: center; }
   .pj-hero h1 { font-size: clamp(2.6rem, 4.6vw, 4.2rem); line-height: 1.05; }
   .pj-hero h1 .accent { color: var(--marigold); }
-  .pj-hero p.lede { font-size: 1.1rem; color: var(--ink-soft); margin-top: 18px; max-width: 460px; }
+  .pj-hero p.lede { font-size: 1.05rem; color: var(--ink-soft); margin-top: 18px; max-width: 490px; line-height: 1.6; }
   .pj-hero-feats { display: flex; gap: 30px; margin-top: 32px; flex-wrap: wrap; }
   .pj-feat { max-width: 150px; }
   .pj-feat-icon { width: 52px; height: 52px; border-radius: 999px; background: var(--blush); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; transition: transform .2s ease; }
@@ -40,6 +40,8 @@
   .pj-hero-visual:hover .pj-hero-media img { transform: scale(1.03); }
 
   /* Section intro */
+  .pj-moments-row { margin-bottom: 60px; background: #ffffff; }
+  .pj-moments-row img { width: 100%; display: block; border-radius: 18px; }
   .pj-intro { text-align: center; max-width: 620px; margin: 0 auto 64px; }
   .pj-intro h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); }
   .pj-intro p { color: var(--ink-soft); margin-top: 8px; }
@@ -88,6 +90,15 @@
   .pj-trust-grid b { display: block; font-size: 0.9rem; margin-bottom: 4px; }
   .pj-trust-grid p { font-size: 0.8rem; color: var(--ink-soft); }
 
+  /* Story moments — photo + theme cards */
+  .pj-story-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 44px; align-items: stretch; }
+  .pj-story-photo { border-radius: 22px; overflow: hidden; box-shadow: 0 26px 54px -20px rgba(35,41,31,.28); }
+  .pj-story-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pj-story-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .story-card { background: var(--cream); border-radius: 18px; padding: 24px 22px; }
+  .story-card b { display: block; font-family: 'Fraunces', serif; font-size: 1.05rem; margin-bottom: 8px; color: var(--ink); }
+  .story-card p { font-size: 0.88rem; color: var(--ink-soft); }
+
   /* Final CTA */
   .pj-final { background: #ffffff; border: 1px solid var(--line); border-radius: 26px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; }
   .pj-final-photo { height: 100%; min-height: 300px; overflow: hidden; }
@@ -99,6 +110,8 @@
   .pj-final-text p { color: var(--ink-soft); margin-top: 10px; font-style: italic; font-family: 'Fraunces', serif; }
 
   @media (max-width: 900px) {
+    .pj-story-grid { grid-template-columns: 1fr; }
+    .pj-story-photo { min-height: 260px; }
     .pj-hero-grid { grid-template-columns: 1fr; }
     .pj-module, .pj-module.reverse, .pj-module-registry { grid-template-columns: 1fr; gap: 34px; }
     .pj-module.reverse .pj-module-text, .pj-module.reverse .pj-module-media { order: initial; }
@@ -121,6 +134,15 @@
 
     .pj-edu-media .pj-blob { display: none; }
   }
+
+  /* Closing */
+  .pj-closing { text-align: center; }
+  .pj-closing-brand { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--marigold); display: block; margin-bottom: 14px; }
+  .pj-closing h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.3; }
+
+  @media (max-width: 560px) {
+    .pj-story-cards { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -131,8 +153,8 @@
 <section class="pj-band pj-hero">
   <div class="pj-wrap pj-hero-grid">
     <div>
-      <h1>Everything you need.<br><span class="accent">Together.</span></h1>
-      <p class="lede">The all-in-one parenting platform for every step — from bump to beyond.</p>
+      <h1>The all-in-one parenting platform.<br><span class="accent">From bump to beyond.</span></h1>
+      <p class="lede">From planning to parenting, make every step simpler. The Perfect Parenting brings your registry, product discovery and trusted parenting education together — in one calm, connected place.</p>
       <div class="pj-hero-feats">
         <div class="pj-feat">
           <div class="pj-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
@@ -160,11 +182,15 @@
 <!-- INTRO -->
 <section class="pj-band" style="padding-bottom:0;">
   <div class="pj-wrap">
+    <div class="pj-moments-row">
+      <img src="/assets/images/13_Moments_Row.jpg" alt="Before they arrive. Little moments. Growing together. Every day becomes a memory.">
+    </div>
+
     <div class="pj-intro">
       <h2>Your parenting journey, simplified</h2>
       <div class="pj-heart-divider">
         <span class="line"></span>
-        <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.1C0.3 8.6 2 5 5.6 5c2 0 3.5 1.1 4.4 2.7C10.9 6.1 12.4 5 14.4 5 18 5 19.7 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg>
+        <svg viewBox="-2 -2 28 28"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <span class="line"></span>
       </div>
     </div>
@@ -259,6 +285,33 @@
   </div>
 </section>
 
+<!-- STORY MOMENTS -->
+<section class="pj-band pj-story">
+  <div class="pj-wrap pj-story-grid">
+    <div class="pj-story-photo">
+      <img src="/assets/images/14_TinyMoments_Quote.jpg" alt="Parents cherishing a quiet moment together">
+    </div>
+    <div class="pj-story-cards">
+      <div class="story-card">
+        <b>The anticipation</b>
+        <p>Before the baby arrives, every little decision feels important.</p>
+      </div>
+      <div class="story-card">
+        <b>The firsts</b>
+        <p>The first smile. The first bath. The first night home.</p>
+      </div>
+      <div class="story-card">
+        <b>The chaos</b>
+        <p>Real parenting is messy, funny and wonderfully imperfect.</p>
+      </div>
+      <div class="story-card">
+        <b>The togetherness</b>
+        <p>Families grow when they share the journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="pj-band">
   <div class="pj-wrap">
@@ -276,6 +329,14 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="pj-band pj-closing">
+  <div class="pj-wrap">
+    <span class="pj-closing-brand">The Perfect Parenting</span>
+    <h2>Parenting is a journey.<br>You don't have to figure it out alone.</h2>
   </div>
 </section>
 
