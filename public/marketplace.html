@@ -29,25 +29,27 @@
       <button class="filter-chip" data-cat="nursery">Nursery</button>
     </div>
 
-    <table class="compare-table" id="compareTable">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th><span class="retailer-badge"><span class="dot amazon"></span>Amazon</span></th>
-          <th><span class="retailer-badge"><span class="dot flipkart"></span>Flipkart</span></th>
-          <th><span class="retailer-badge"><span class="dot firstcry"></span>FirstCry</span></th>
-          <th><span class="retailer-badge"><span class="dot quick"></span>Quick commerce</span></th>
-          <th>Add to</th>
-        </tr>
-      </thead>
-      <tbody id="compareBody"></tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="compare-table" id="compareTable">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th><span class="retailer-badge"><span class="dot amazon"></span>Amazon</span></th>
+            <th><span class="retailer-badge"><span class="dot flipkart"></span>Flipkart</span></th>
+            <th><span class="retailer-badge"><span class="dot firstcry"></span>FirstCry</span></th>
+            <th><span class="retailer-badge"><span class="dot quick"></span>Quick commerce</span></th>
+            <th>Add to</th>
+          </tr>
+        </thead>
+        <tbody id="compareBody"></tbody>
+      </table>
+    </div>
     <p style="font-size:0.8rem;margin-top:14px;">Prices shown are illustrative sample data for this preview build — live pricing connects via retailer affiliate feeds once published.</p>
   </div>
 </section>
 
 <section class="section" id="retailers" style="background:var(--white);border-top:1px solid var(--line);">
-  <div class="wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+  <div class="wrap grid-3" style="gap:24px;">
     <div class="card">
       <span class="eyebrow">Why we compare</span>
       <h3>No more tab-switching</h3>
